@@ -1,0 +1,140 @@
+.am-slides img {
+    height: 480px;
+}
+
+@media (max-width: 768px) {
+    .index-main-body {
+        display: none;
+    }
+    .am-gotop {
+        display: none;
+    }
+    .btm-section {
+        display: none;
+    }
+}
+
+
+/* 关于我们 */
+
+.index-main-title {
+    margin-top: 20px;
+}
+
+.index-main-title span {
+    margin: 20px 0;
+}
+
+.am-gotop-fixed {
+    width: 48px;
+}
+
+.contact-icon li:first {
+    width: 35% !important;
+}
+
+.contact-icon li:nth-child(2) {
+    width: 30% !important;
+}
+
+.contact-icon:last-child {
+    width: 35% !important;
+}
+
+.title-box_primary {
+    font-size: 24px;
+}
+
+@media only screen and (max-width: 600px) and (min-width: 340px) {
+    .message-body {
+        padding: 15px 0 100px!important;
+    }
+}
+
+.tagline {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+
+/* 产品解决方案 */
+
+.content-list-items {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.content-list-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* background: #ffffff; */
+    margin-bottom: 8px;
+    padding-bottom: 45px;
+    position: relative;
+    height: 285px;
+    width: 260px !important;
+}
+
+.content-list-item .content-list-item-copy {
+    padding: 20px 0;
+    color: white;
+}
+
+.content-list-item-image {
+    background: no-repeat center / contain;
+    overflow: hidden;
+    padding-bottom: 60%;
+    position: relative;
+    width: 100%;
+    width: 255px;
+    height: 171px;
+}
+
+.content-list-item a {
+    margin: 0;
+}
+
+.proA {
+    border: 0 !important;
+    margin: 30px 0 !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.index-main-body ul>li:nth-child(2n) {
+    margin: 0 15px;
+}
+
+.index-main-body {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.index-main-title {
+    width: 1100px;
+}
+
+.lbe_box h3 {
+    font-family: "Futura W01", "Trebuchet MS", Arial, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+}
+
+.scrollcontainer li {
+    margin: 0 !important;
+}
+
+.scrollcontainer li a {
+    margin: 0!important;
+    height: 72px!important;
+}
+
+.scrollcontainer li img {
+    margin: 0!important;
+}
+
+.am-u-sm-12 {
+    text-align: center;
+}
