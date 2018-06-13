@@ -70,8 +70,8 @@
 }
 
 .content-list-item {
-    background-color: rgba(0, 0, 0, 0.2);
-    /* background: #ffffff; */
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    background: #ffffff;
     margin-bottom: 8px;
     padding-bottom: 45px;
     position: relative;
@@ -81,7 +81,7 @@
 
 .content-list-item .content-list-item-copy {
     padding: 20px 0;
-    color: white;
+    /* color: white; */
 }
 
 .content-list-item-image {
