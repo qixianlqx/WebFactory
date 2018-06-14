@@ -19,70 +19,137 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/templatemo_style.css">
     <link rel="stylesheet" href="css/index2.css">
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+
     <style>
-    .am-list li {
-            padding: 0 !important;
+        * {
+            margin: 0;
+            padding: 0;
         }
         
-        .am-list {
-            width: 250px;
+        img {
+            border: 0;
         }
         
-        .alowright {
+        ul,
+        li {
+            list-style-type: none;
+        }
+        
+        a {
+            color: #00007F;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: #bd0a01;
+            text-decoration: underline;
+        }
+        
+        .treebox {
+            width: 200px;
+            margin: 0 auto;
+            /* background-color: #1a6cb9; */
+            background-color: #28905a;
+        }
+        
+        .menu {
+            overflow: hidden;
+            border-color: #ddd;
+            border-style: solid;
+            border-width: 0 1px 1px;
+        }
+        /*第一层*/
+        
+        .menu li.level1>a {
+            display: block;
+            height: 45px;
+            line-height: 45px;
+            color: #fff;
+            padding-left: 50px;
+            border-bottom: 1px solid #000;
+            font-size: 16px;
+            position: relative;
+            transition: all .5s ease 0s;
+        }
+        
+        .menu li.level1 a:hover {
+            text-decoration: none;
+            background-color: #326ea5;
+        }
+        
+        .menu li.level1 a.current {
+            background: #0f4679;
+        }
+        /*============修饰图标*/
+        
+        .ico {
+            width: 20px;
+            height: 20px;
+            display: block;
             position: absolute;
-            right: 8px;
-            top: 16%;
-            color: #28905a;
+            left: 20px;
+            top: 10px;
+            background-repeat: no-repeat;
+            background-image: url(images/ico1.png);
+        }
+        /*============小箭头*/
+        
+        .level1 i {
+            width: 20px;
+            height: 10px;
+            background-image: url(images/arrow.png);
+            background-repeat: no-repeat;
+            display: block;
+            position: absolute;
+            right: 5px;
+            top: 20px;
         }
         
-        .am-list li:first-child {
-            border-top-left-radius: .25rem;
-            border-top-right-radius: .25rem;
+        .level1 i.down {
+            background-position: 0 -10px;
         }
         
-        .am-list li:last-child {
-            margin-bottom: 0;
-            border-bottom-right-radius: .25rem;
-            border-bottom-left-radius: .25rem;
+        .ico1 {
+            background-position: 0 0;
         }
         
-        .typelist li {
-            width: 48%;
-            padding-top: 10px;
-            margin: 5px;
-            text-align: center;
-            height: 350px;
-            border: 1px solid #e4e4e4;
+        .ico2 {
+            background-position: 0 -20px;
         }
         
-        .typelist li img {
-            height: 80%;
-            width: 100%;
+        .ico3 {
+            background-position: 0 -40px;
         }
         
-        .am-icon-btn {
-            padding-left: 2px;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            font-size: 20px;
-            line-height: 35px;
-            border-radius: 50%;
-            background-color: #eee;
-            color: #555;
-            text-align: center;
+        .ico4 {
+            background-position: 0 -60px;
         }
         
-        .typeNameSty {
-            font-style: normal;
-            color: #0e90d2;
-            font-weight: bold;
-            margin-left: 5px;
+        .ico5 {
+            background-position: 0 -80px;
         }
-    }
+        /*第二层*/
+        
+        .menu li ul {
+            overflow: hidden;
+        }
+        
+        .menu li ul.level2 {
+            display: none;
+            background: #0f4679;
+            margin: 0;
+        }
+        
+        .menu li ul.level2 li a {
+            display: block;
+            height: 45px;
+            line-height: 45px;
+            color: #fff;
+            text-indent: 20px;
+            /*border-bottom: 1px solid #ddd; */
+            font-size: 14px;
+            transition: all 1s ease 0s;
+        }
     </style>
     <!--[if (gte IE 9)|!(IE)]><!-->
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
@@ -126,7 +193,6 @@
                     <li><a href="article_list.html" name="new">新闻资讯</a></li>
                     <li><a href="contact.html" name="message">联系我们</a>
                         <div class="secondary-menu">
-
                             <ul>
                                 <li>
                                     <a href="message.html" class="message"></a>
@@ -164,13 +230,18 @@
     <main style="padding-top: 15px;">
         <div class="am-g" style="width:100%;">
             <div class="am-u-sm-3">
-                <ul class="am-list am-list-static am-list-border" data-bind="foreach: TypeList">
-                    <li><a href="javascript:void(0)" data-bind="text: name,click:$root.typeClick">石油化工</a><i class="am-icon-angle-right am-icon-md  alowright" aria-hidden="true"></i></li>
-                    <!-- <li><a href="#">风电能源</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
-                    <li><a href="#">钢铁行业</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
-                    <li><a href="#">建筑水泥</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
-                    <li><a href="#">变电站电力所</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i> </li> -->
-                </ul>
+                <div class="treebox">
+                    <ul class="menu" data-bind="foreach: TypeList">
+                        <li class="level1">
+                            <a href="#none" data-bind="click:$root.typeClick"><em class="ico ico1" data-bind="attr:{class:'ico ico'+$index}"></em><em data-bind="text: name"></em><i class="down"></i></a>
+                            <ul class="level2" data-bind="foreach: infos">
+                                <li>
+                                    <a href="javascript:;" data-bind="text: title"></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="am-u-sm-9">
                 <div class="am-g">
@@ -186,12 +257,6 @@
                         </ol>
                     </div>
                 </div>
-                <ul class="typelist am-avg-sm-4 am-thumbnails" data-bind="foreach: infoList">
-                    <li data-bind="style:{width:$root.count<=1 ? '100%':$root.count==2 ?'48.5%':'32%'}" class="am-animation-fade">
-                        <img class="am-thumbnail" data-bind="attr:{src:'images/productList/'+img()}" />
-                        <a href="javascript:void(0)" data-bind="text: title()">石油化工</a>
-                    </li>
-                </ul>
             </div>
         </div>
 
@@ -284,8 +349,24 @@
         </section>
     </footer>
 </body>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/easing.js"></script>
 <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
 <script src="lib/knockoutjs/linq.min.js"></script>
-<script type="text/javascript" src="js/productList/projs.js?v=201800010"></script>
+<script type="text/javascript" src="js/productList/procase.js?v=2018001"></script>
+
+<script>
+    //等待dom元素加载完毕.
+    $(function() {
+        $(".treebox .level1>a").click(function() {
+            $(this).addClass('current') //给当前元素添加"current"样式
+                .find('i').addClass('down') //小箭头向下样式
+                .parent().next().slideDown('slow', 'easeOutQuad') //下一个元素显示
+                .parent().siblings().children('a').removeClass('current') //父元素的兄弟元素的子元素去除"current"样式
+                .find('i').removeClass('down').parent().next().slideUp('slow', 'easeOutQuad'); //隐藏
+            return false; //阻止默认时间
+        });
+    })
+</script>
 
 </html>
