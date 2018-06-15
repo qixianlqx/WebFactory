@@ -233,10 +233,10 @@
                 <div class="treebox">
                     <ul class="menu" data-bind="foreach: TypeList">
                         <li class="level1">
-                            <a href="#none" data-bind="click:$root.typeClick"><em class="ico ico1" data-bind="attr:{class:'ico ico'+$index}"></em><em data-bind="text: name"></em><i class="down"></i></a>
+                            <a href="#none" ata-bind="text: title"><em class="ico ico1" data-bind="attr:{class:'ico ico'+$index}"></em><em data-bind="text: name"></em><i class="down"></i></a>
                             <ul class="level2" data-bind="foreach: infos">
                                 <li>
-                                    <a href="javascript:;" data-bind="text: title"></a>
+                                    <a href="javascript:;" data-bind="text: title,click:$root.typeClick"></a>
                                 </li>
                             </ul>
                         </li>
@@ -257,6 +257,15 @@
                         </ol>
                     </div>
                 </div>
+                <ul class="typelist am-avg-sm-4 am-thumbnails" data-bind="foreach: infoList">
+                    <li data-bind="style:{width:$root.count<=1 ? '100%':$root.count==2 ?'48.5%':'32%'}" class="am-animation-fade">
+                        <!-- <img class="am-thumbnail" data-bind="attr:{src:'images/productList/'+img()}" />
+                        <a href="javascript:void(0)" data-bind="text: title()">石油化工</a> -->
+                        <a class="fancybox-effects-a" data-bind="attr:{id:'fanbox_'+$index(),href:'images/productList/'+img(),title:title}"><img data-bind="attr: {src:'images/productList/'+img()}" alt="" />
+                            <span data-bind="text: title()" class="titleSty"> </span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -353,7 +362,7 @@
 <script src="lib/jquery/easing.js"></script>
 <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
 <script src="lib/knockoutjs/linq.min.js"></script>
-<script type="text/javascript" src="js/productList/procase.js?v=2018001"></script>
+<script type="text/javascript" src="js/productList/productlist.js?v=124"></script>
 
 <script>
     //等待dom元素加载完毕.
