@@ -43,6 +43,7 @@ function ViewModel() {
         self.infoList(setItem(item.infos()));
         self.className(item.className());
         self.currentName(item.name());
+        loadFun();
     }
     self.count = self.TypeList()[0].infos().length;
     self.currentName = ko.observable(self.TypeList()[0].name());
