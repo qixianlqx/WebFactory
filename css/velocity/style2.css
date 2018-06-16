@@ -17,8 +17,24 @@ Primary style
     content: '';
 }
 
-.cd-item {
+body {
+    font-size: 100%;
+    font-family: "PT Sans", sans-serif;
+}
+
+body::after {
+    /* dark overlay layer - visible when we fire .cd-quick-view */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    /* background: rgba(71, 55, 78, 0.8);*/
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -31,12 +47,21 @@ Primary style
     }
 }
 
+a {
+    color: #f82f53;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
 
 /* -------------------------------- 
-  
-  Modules - reusable parts of our design
-  
-  -------------------------------- */
+
+Modules - reusable parts of our design
+
+-------------------------------- */
 
 .cd-container {
     /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
@@ -53,10 +78,46 @@ Primary style
 
 
 /* -------------------------------- 
-  
-  Main components 
-  
-  -------------------------------- */
+
+Main components 
+
+-------------------------------- */
+
+html,
+body {
+    height: 100%;
+}
+
+header {
+    position: relative;
+    height: 160px;
+    line-height: 170px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 20px;
+    font-size: 1.25rem;
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        line-height: 180px;
+    }
+    header h1 {
+        font-size: 26px;
+        font-size: 1.625rem;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    header {
+        line-height: 220px;
+    }
+}
 
 .cd-items {
     padding: 1em 0;
@@ -68,6 +129,12 @@ Primary style
     }
 }
 
+@media only screen and (min-width: 1024px) {
+    .cd-items {
+        padding: 4em 0 0;
+    }
+}
+
 .cd-item {
     position: relative;
     margin: 0 0 1em;
@@ -76,6 +143,17 @@ Primary style
 .cd-item>img {
     display: block;
     width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .cd-item {
+        width: 48%;
+        float: left;
+        margin: 0 4% 2em 0;
+    }
+    .cd-item:nth-child(2n) {
+        margin-right: 0;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -97,11 +175,7 @@ Primary style
         left: 0;
         width: 100%;
         height: 100%;
-        /* background-color: #392c3f; */
-        background-color: #000000;
-        /* IE6和部分IE7内核的浏览器(如QQ浏览器)下颜色被覆盖 */
-        background-color: rgba(0, 0, 0, 0.6);
-        /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+        background-color: #392c3f;
     }
 }
 
@@ -124,12 +198,9 @@ Primary style
     transition: opacity 0.2s, background-color 0.2s;
 }
 
-
-/* .cd-trigger:hover {
-    color: #28905a;
-    font-weight: bold;
-    font-size: 18px;
-} */
+.no-touch .cd-trigger:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
 
 @media only screen and (min-width: 1024px) {
     .cd-trigger {
