@@ -137,21 +137,9 @@
                 </div>
                 <ul class="typelist am-avg-sm-4 am-thumbnails cd-items cd-container" data-bind="foreach: ProDetails">
                     <li style="width: 42%;" class="am-animation-fade cd-item">
-                        <!-- <img data-bind="attr:{src:'images/productList2/'+img()}" alt="Item Preview" />
-                        <a href="#0" class="cd-trigger">点我查看详情</a>
-                        <div data-bind="text: name()" class="titleSty" style="margin-top: 18%;"> </div> -->
-
-                        <!-- <ul class="cd-items cd-container" style="width: 100%">
-                            <li class="cd-item">
-                                <img src="images/productList2/LCO-LiCoO2_28v.jpg" alt="Item Preview">
-                                <a href="#0" class="cd-trigger">点击预览</a>
-                            </li>
-
-                        </ul> -->
-                        <img src="images/productList2/LCO-LiCoO2_28v.jpg" style="height: 55%;" alt="Item Preview">
+                        <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 55%;" alt="Item Preview">
                         <div data-bind="text: name()" class="titleSty" style="margin-top: 18%;"> </div>
                         <a href="#0" class="cd-trigger">点我查看详情</a>
-
                     </li>
                 </ul>
             </div>
@@ -245,10 +233,10 @@
             </div>
         </section>
     </footer>
-    <div class="cd-quick-view">
+    <div class="cd-quick-view" data-bind="with:showImg">
         <div class="cd-slider-wrapper">
             <ul class="cd-slider">
-                <li class="selected"><img src="images/productList2/LCO-LiCoO2_28v.jpg" alt="Product 1"></li>
+                <li class="selected"><img id="showDetailImg" data-bind="attr:{src:'images/productList2/'+img()}" alt="Product 1"></li>
             </ul>
             <!-- cd-slider -->
 

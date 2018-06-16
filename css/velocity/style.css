@@ -17,6 +17,31 @@ Primary style
     content: '';
 }
 
+body::after {
+    /* dark overlay layer - visible when we fire .cd-quick-view */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(71, 55, 78, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+
+@media only screen and (min-width: 1024px) {
+    body.overlay-layer::after {
+        visibility: visible;
+        opacity: 1;
+        -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+        -moz-transition: opacity .3s 0s, visibility 0s 0s;
+        transition: opacity .3s 0s, visibility 0s 0s;
+    }
+}
+
 .cd-item {
     width: 100%;
 }
@@ -105,6 +130,9 @@ Primary style
     }
 }
 
+
+/* 显示详情鼠标字体样式 */
+
 .cd-trigger {
     position: absolute;
     height: 50px;
@@ -125,11 +153,13 @@ Primary style
 }
 
 
-/* .cd-trigger:hover {
+/* 显示详情鼠标移上字体样式 */
+
+.cd-trigger:hover {
     color: #28905a;
     font-weight: bold;
     font-size: 18px;
-} */
+}
 
 @media only screen and (min-width: 1024px) {
     .cd-trigger {
@@ -164,8 +194,9 @@ Primary style
     .cd-quick-view {
         display: block;
         position: fixed;
-        max-width: 900px;
+        /* max-width: 900px; */
         visibility: hidden;
+        height: 500px;
         /* Force Hardware Acceleration in WebKit */
         -webkit-transform: translateZ(0);
         -moz-transform: translateZ(0);

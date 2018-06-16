@@ -94,11 +94,18 @@ function ViewModel() {
         ])
     ]);
     self.ProDetails = ko.observableArray(setItem(self.TypeList()[1].infos()[0].ProDetails()));
+    //点击产品类型
     self.infoClick = function(item, name) {
         self.count = item.ProDetails().length;
         self.currentName(name + " - " + item.title());
-        console.log(item);
         self.ProDetails(setItem(item.ProDetails()));
+        loadFun();
+    };
+    //详设产品详情参数对象
+    self.showImg = ko.observable(self.TypeList()[1].infos()[0].ProDetails()[0]);
+    //点击显示产品详情事件
+    self.showClick = function(item) {
+        self.showImg(item());
     }
     self.count = self.TypeList()[0].infos().length;
     self.currentName = ko.observable(self.TypeList()[0].name());
