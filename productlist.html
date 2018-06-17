@@ -242,8 +242,8 @@
         <div class="modal__content" data-bind="with:showImg">
             <h1 data-bind="text:name()">Big Modal</h1>
             <p data-bind="html:desc"> </p>
-            <p><img data-bind="attr:{src:'images/productList2/'+img()}" alt="" /></p>
-            <h1>细分市场</h1>
+            <div><img data-bind="attr:{src:'images/productList2/'+img()}" class="am-img-thumbnail am-radius" alt="" /></div>
+            <h1>市场分类</h1>
             <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-avg-lg-5 am-avg-lg-6 am-thumbnails" data-bind="foreach: segmentMarket">
                 <li style="width: 100px;height: 85px;">
                     <h3 class="am-thumbnail-caption" style="text-align: center;padding: 0;" data-bind="text:name()"></h3>

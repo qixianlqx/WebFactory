@@ -99,9 +99,8 @@ function ViewModel() {
         self.count = item.ProDetails().length;
         self.currentName(name + " - " + item.title());
         self.ProDetails(setItem(item.ProDetails()));
-        //重新加载点击事件(延迟加载元素后需要重新绑定事件，否则事件无效)
-        // loadFun();
-
+        //重新加载点击事件(延迟加载元素后需要重新绑定事件，否则事件无效)         
+        Modal();
 
     };
     //详设产品详情参数对象
@@ -109,7 +108,6 @@ function ViewModel() {
     //点击显示产品详情事件
     self.showClick = function(item) {
         self.showImg(item);
-        Modal();
     }
     self.count = self.TypeList()[0].infos().length;
     self.currentName = ko.observable(self.TypeList()[0].name());
