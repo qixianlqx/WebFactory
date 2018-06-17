@@ -14,7 +14,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <!-- <link rel="stylesheet" href="css/velocity/reset.css"> -->
-    <link rel="stylesheet" href="css/velocity/style.css">
+    <!-- <link rel="stylesheet" href="css/velocity/style.css"> -->
 
     <link rel="stylesheet" href="css/default.min.css-t=227.css">
     <link rel="stylesheet" href="css/amazeui.min.css" />
@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="css/index2.css">
 
     <link rel="stylesheet" href="css/productList/style.css">
+
+    <link rel="stylesheet" href="css/productList/ModalNormalize.min.css">
+    <link rel="stylesheet" href="css/productList/ModalStyle.css">
 
     <script src="lib/velocity/modernizr.js"></script>
 
@@ -35,11 +38,11 @@
     <script src="../../../../../cdn.staticfile.org/modernizr/2.8.3/modernizr.js" ></script>
     <script src="lib/amazeui/amazeui.ie8polyfill.min.js"  ></script>
     <![endif]-->
-    <script type="text/javascript" src="lib/handlebars/handlebars.min.js"></script>
-    <script type="text/javascript" src="lib/iscroll/iscroll-probe.js"></script>
+
     <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
-    <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
     <script type="text/javascript" src="js/main.min.js-t=1"></script>
+
+
 </head>
 
 <body>
@@ -114,7 +117,7 @@
                             <a href="#none" ata-bind="text: title" class="am-icon-battery-full"> <em data-bind="text: name" class="nameSty"></em><i class="down"></i></a>
                             <ul class="level2" data-bind="foreach: infos">
                                 <li>
-                                    <a href="javascript:;" data-bind="text: title,click:function(){$root.infoClick($data,$parent.name())}"></a>
+                                    <a href="javascript:;" data-bind="text: title,click:function(){$root.infoClick($data,$parent.name(),$index())}"></a>
                                 </li>
                             </ul>
                         </li>
@@ -136,10 +139,10 @@
                     </div>
                 </div>
                 <ul class="typelist am-avg-sm-4 am-thumbnails cd-items cd-container" data-bind="foreach: ProDetails">
-                    <li style="width: 42%;" class="am-animation-fade cd-item">
+                    <li style="width: 42%;position: relative;" class="am-animation-fade showDetial">
                         <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 55%;" alt="Item Preview">
                         <div data-bind="text: name()" class="titleSty" style="margin-top: 18%;"> </div>
-                        <a href="#0" class="cd-trigger">点我查看详情</a>
+                        <a href="#0" data-modal="#modal" style="transform: none;" class="cd-trigger" data-bind="click:$root.showClick,attr:{id:'trigger_'+$index()}">点我查看详情</a>
                     </li>
                 </ul>
             </div>
@@ -233,48 +236,61 @@
             </div>
         </section>
     </footer>
-    <div class="cd-quick-view" data-bind="with:showImg">
-        <div class="cd-slider-wrapper">
-            <ul class="cd-slider">
-                <li class="selected"><img id="showDetailImg" data-bind="attr:{src:'images/productList2/'+img()}" alt="Product 1"></li>
-            </ul>
-            <!-- cd-slider -->
-
-            <ul class="cd-slider-navigation">
-                <li><a class="cd-next" href="#0">Prev</a></li>
-                <li><a class="cd-prev" href="#0">Next</a></li>
-            </ul>
-            <!-- cd-slider-navigation -->
-        </div>
-        <!-- cd-slider-wrapper -->
-
-        <div class="cd-item-info">
-            <h2>Produt Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
-
-            <ul class="cd-item-action">
-                <li><button class="add-to-cart">Add to cart</button></li>
-                <li><a href="#0">Learn more</a></li>
-            </ul>
-            <!-- cd-item-action -->
-        </div>
-        <!-- cd-item-info -->
-        <a href="#0" class="cd-close">Close</a>
-    </div>
 </body>
+<div id="modal" class="modal modal--align-top modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+        <div class="modal__content" data-bind="with:showImg">
+            <h1 data-bind="text:name()">Big Modal</h1>
+            <p data-bind="html:desc"> </p>
+            <p><img data-bind="attr:{src:'images/productList2/'+img()}" alt="" /></p>
+            <h1>细分市场</h1>
+            <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-avg-lg-5 am-avg-lg-6 am-thumbnails" data-bind="foreach: segmentMarket">
+                <li style="width: 100px;height: 85px;">
+                    <h3 class="am-thumbnail-caption" style="text-align: center;padding: 0;" data-bind="text:name()"></h3>
+                    <img class="am-thumbnail" style="margin: 0;border:0" data-bind="attr:{src:'images/SegmentMarket/'+img()}" />
+                </li>
+            </ul>
+            <h1>特性与效益</h1>
+            <ul data-bind="foreach: feature" class="ulstyle">
+                <li>
+                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                </li>
+            </ul>
+            <h1>技术规格</h1>
+            <ul data-bind="foreach: spec" class="ulstyle">
+                <li>
+                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                </li>
+            </ul>
+            <!-- modal close button -->
+            <a href="" class="modal__close demo-close">
+                <svg class="" viewBox="0 0 24 24">
+              <path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/>
+              <path d="M0 0h24v24h-24z" fill="none"/>
+            </svg>
+            </a>
+        </div>
+    </div>
+</div>
 
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/jquery/easing.js"></script>
 <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
 <script src="lib/knockoutjs/linq.min.js"></script>
 <script type="text/javascript" src="js/productList/productlist.js?v=124"></script>
+<script type="text/javascript" src="js/productList/index.js"></script>
 
-<script src="lib/velocity/velocity.min.js"></script>
-<script src="lib/velocity/main.js"></script>
+<!-- <script src="lib/velocity/velocity.min.js"></script> -->
+<!-- <script src="lib/velocity/main.js"></script> -->
 
 <script>
+    function cancelFun() {
+        alert();
+
+    }
     //等待dom元素加载完毕.
     $(function() {
+
         $(".treebox .level1>a").click(function() {
             $(this).addClass('current') //给当前元素添加"current"样式
                 .find('i').addClass('down') //小箭头向下样式

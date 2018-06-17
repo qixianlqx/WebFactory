@@ -54,7 +54,7 @@ function ViewModel() {
         new TypeList(1, '直流屏', 'am-icon-pie-chart', [new infoList(1, '直流屏', [])]),
         new TypeList(2, '一次性锂电池', 'am-icon-won', [
             new infoList(1, 'Li-MnO2', [
-                new ProDetail(1, 'Li-MnO2-junyong.jpg', '军用一次性锂电池系统', '军用一次性锂电池能够应对战场和训练场中严苛的机械和电气环境。<br/>将多个独立电池串联、并联或串并联在一起，置于软包装（热收缩塑料套）或硬包装（塑料或金属）中。可为特定设备提供定制版本和标准版本电池。一般的安全特点包括根据要求提供电气保险丝和热熔丝、过流保护器和二极管。这种电池还可提供充电状态指示器和SM总线通讯。', ['重量轻', '在大多数使用周期内提供稳定的输出电压', '能够在广泛的温度范围内提供优异性能', '低自放电率', '使用前可存储超过5年时间', '结构牢固的设计', '即使在各种温度下存储很长时间，依然具有出色的耐钝化特性', '在 -20°C 温度下具有无与伦比的性能', '一些电池型号配有充电状态指示器', '多种化学反应系列电池：锂-二氧化硫、锂-二氧化锰、锂-亚硫酰氯'], ['标称电压：最高30V', '标称容量：最高68Ah', '工作温度：-60°C至+70°C'], [new segmentMarket(1, '国防', 'defense.png')])
+                new ProDetail(1, 'Li-MnO2-junyong.jpg', '军用一次性锂电池系统', '军用一次性锂电池能够应对战场和训练场中严苛的机械和电气环境。<br/><br/>将多个独立电池串联、并联或串并联在一起，置于软包装（热收缩塑料套）或硬包装（塑料或金属）中。可为特定设备提供定制版本和标准版本电池。一般的安全特点包括根据要求提供电气保险丝和热熔丝、过流保护器和二极管。这种电池还可提供充电状态指示器和SM总线通讯。', ['重量轻', '在大多数使用周期内提供稳定的输出电压', '能够在广泛的温度范围内提供优异性能', '低自放电率', '使用前可存储超过5年时间', '结构牢固的设计', '即使在各种温度下存储很长时间，依然具有出色的耐钝化特性', '在 -20°C 温度下具有无与伦比的性能', '一些电池型号配有充电状态指示器', '多种化学反应系列电池：锂-二氧化硫、锂-二氧化锰、锂-亚硫酰氯'], ['标称电压：最高30V', '标称容量：最高68Ah', '工作温度：-60°C至+70°C'], [new segmentMarket(1, '国防', 'defense.png')])
             ]),
             new infoList(2, 'Li-SO2', [
                 new ProDetail(1, 'Li-S02_LO-G.jpg', 'LO, G', 'LO/G 圆柱型锂原电池以锂-二氧化硫 (Li-SO2) 化学反应为基础，它具有非常大的螺旋电极面积，能够提供大功率和最强的电流脉冲能力。它的设计适用于需要连续获得 0.1-5A 电流的设备，并且提供高达 60A 的叠加脉冲。', ['在大多数使用周期内提供稳定的高工作电压', '无与伦比的脉冲能力', '能够在低至 -40℃ 的条件下提供优异的电力', '容量在 1A 以上', '优秀的耐钝化性能，电压延迟非常低', '低自放电特性，存储时间更长', '无论电池方向如何，都能够释放能量', '技术成熟，量产超过30年，拥有丰富的实践经验', '重量轻', '在严苛的军事设备领域拥有出色的安全记录'], ['标称电压：3.0V', '螺旋结构', '圆柱状：1/2AA 至 F', '最大脉冲能力达到60A', '容量范围：0.45Ah 至 16.5Ah', '工作温度：-40°C 至 +70°C', '不易燃电解液', '符合欧盟 RoHS 指令'], [new segmentMarket(1, '国防', 'defense.png'), new segmentMarket(2, '医疗用具', 'Medical_devices.png')])
@@ -95,17 +95,21 @@ function ViewModel() {
     ]);
     self.ProDetails = ko.observableArray(setItem(self.TypeList()[1].infos()[0].ProDetails()));
     //点击产品类型
-    self.infoClick = function(item, name) {
+    self.infoClick = function(item, name, count) {
         self.count = item.ProDetails().length;
         self.currentName(name + " - " + item.title());
         self.ProDetails(setItem(item.ProDetails()));
-        loadFun();
+        //重新加载点击事件(延迟加载元素后需要重新绑定事件，否则事件无效)
+        // loadFun();
+
+
     };
     //详设产品详情参数对象
     self.showImg = ko.observable(self.TypeList()[1].infos()[0].ProDetails()[0]);
     //点击显示产品详情事件
     self.showClick = function(item) {
-        self.showImg(item());
+        self.showImg(item);
+        Modal();
     }
     self.count = self.TypeList()[0].infos().length;
     self.currentName = ko.observable(self.TypeList()[0].name());

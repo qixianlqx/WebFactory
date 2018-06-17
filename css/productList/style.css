@@ -39,6 +39,7 @@
 
 .nameSty {
     margin-left: 10px;
+    font-style: normal;
 }
 
 .menu li.level1 a:hover {
@@ -51,6 +52,7 @@
     color: #28905a;
     font-size: 18px;
     font-weight: bold;
+    font-style: normal;
 }
 
 
@@ -151,4 +153,45 @@
 main {
     max-width: 75%;
     margin: 0 auto;
+}
+
+
+/* 点我查看详情 */
+
+.cd-trigger {
+    position: absolute;
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.2s, background-color 0.2s;
+    -moz-transition: opacity 0.2s, background-color 0.2s;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.cd-trigger:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.showDetial:hover .cd-trigger {
+    opacity: 1;
+    visibility: visible;
+    font-weight: bold;
+    color: #28905a;
+}
+
+
+/* 产品详情列表样式 */
+
+.ulstyle {
+    list-style-type: disc;
+    margin-left: 20px;
 }
