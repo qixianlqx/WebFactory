@@ -193,10 +193,25 @@ main {
     color: #28905a;
 }
 
+.showDetial:hover .titleSty {
+    visibility: hidden;
+}
+
 
 /* 产品详情列表样式 */
 
 .ulstyle {
     list-style-type: disc;
     margin-left: 20px;
+}
+
+.segmentMarket {
+    height: 125px !important;
+    border: 1px solid #ddd;
+    padding-top: 10px !important;
+    border-radius: 10%;
+    margin-right: 5px;
+    width: 120px !important;
+    text-align: center;
+    margin-top: 5px;
 }

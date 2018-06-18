@@ -22,13 +22,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/templatemo_style.css">
     <link rel="stylesheet" href="css/index2.css">
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.min.css">
 
     <link rel="stylesheet" href="css/productList/style.css">
 
     <link rel="stylesheet" href="css/productList/ModalNormalize.min.css">
     <link rel="stylesheet" href="css/productList/ModalStyle.css">
 
-    <script src="lib/velocity/modernizr.js"></script>
 
     <!--[if (gte IE 9)|!(IE)]><!-->
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
@@ -42,6 +42,26 @@
     <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
     <script type="text/javascript" src="js/main.min.js-t=1"></script>
 
+
+    <style>
+        .ui-dialog-title {
+            font-size: 35px;
+            text-align: center;
+        }
+        /* 关闭按钮大小 */
+        
+        .ui-dialog .ui-dialog-titlebar-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            top: 35%;
+        }
+        
+        #dialog h1 {
+            border-left: 7px solid #28905a;
+            padding-left: 10px;
+        }
+    </style>
 
 </head>
 
@@ -67,7 +87,6 @@
             <nav>
                 <ul class="header-nav-ul am-collapse am-in">
                     <li class="on"><a href="index.html" name="index">网站首页</a></li>
-                    <li><a href="about.html" name="about">关于我们</a></li>
                     <li><a href="productlist.html?v=12"> 产品中心 </a></li>
                     <li><a href="projectCase.html?v=12"> 工程案例 </a></li>
                     <li><a href="article_list.html" name="new">新闻资讯</a></li>
@@ -141,11 +160,12 @@
                         </ol>
                     </div>
                 </div>
-                <ul class="typelist am-avg-sm-4 am-thumbnails cd-items cd-container" data-bind="foreach: ProDetails">
-                    <li style="width: 42%;position: relative;" class="am-animation-fade showDetial">
-                        <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 55%;" alt="Item Preview">
-                        <div data-bind="text: name()" class="titleSty" style="margin-top: 18%;"> </div>
-                        <a href="#0" data-modal="#modal" style="transform: none;" class="cd-trigger" data-bind="click:$root.showClick,attr:{id:'trigger_'+$index()}">点我查看详情</a>
+                <ul class="am-avg-md-3 am-thumbnails typelist" data-bind="foreach: ProDetails">
+                    <!-- <ul class="typelist am-avg-sm-2 am-avg-sm-3  am-avg-sm-4 am-thumbnails" data-bind="foreach: ProDetails"> -->
+                    <li style="position: relative;width: 30%;" data-bind="style:{width:$root.count==1 ?'50%':$root.count==2?'42%':'32%'}" class="am-animation-fade showDetial">
+                        <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 80%;width: 100%;" alt="Item Preview">
+                        <div data-bind="text: name()" class="titleSty"> </div>
+                        <a href="#0" style="transform: none;" class="cd-trigger" data-bind="click:$root.showClick,attr:{id:'trigger_'+$index()}">点我查看详情</a>
                     </li>
                 </ul>
             </div>
@@ -240,69 +260,100 @@
         </section>
     </footer>
 </body>
-<div id="modal" class="modal modal--align-top modal__bg" role="dialog" aria-hidden="true">
-    <div class="modal__dialog">
-        <div class="modal__content" data-bind="with:showImg">
-            <h1 data-bind="text:name()">Big Modal</h1>
-            <p data-bind="html:desc"> </p>
-            <div><img data-bind="attr:{src:'images/productList2/'+img()}" class="am-img-thumbnail am-radius" alt="" /></div>
-            <h1>市场分类</h1>
-            <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-avg-lg-5 am-avg-lg-6 am-thumbnails" data-bind="foreach: segmentMarket">
-                <li style="width: 100px;height: 85px;">
-                    <h3 class="am-thumbnail-caption" style="text-align: center;padding: 0;" data-bind="text:name()"></h3>
-                    <img class="am-thumbnail" style="margin: 0;border:0" data-bind="attr:{src:'images/SegmentMarket/'+img()}" />
-                </li>
-            </ul>
-            <h1>特性与效益</h1>
-            <ul data-bind="foreach: feature" class="ulstyle">
-                <li>
-                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
-                </li>
-            </ul>
+<div id="dialog">
+    <div data-bind="with:showImg" style="padding:10px;">
+        <h1>介绍</h1>
+        <p data-bind="html:desc" style="margin-top: 20px;"> </p>
+        <img data-bind="attr:{src:'images/productList2/'+img()}" class="am-img-thumbnail am-radius" style="height:250px;width:50%;" alt="" />
+        <h1>市场分类</h1>
+        <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-avg-lg-5 am-avg-lg-6 am-thumbnails" data-bind="foreach: segmentMarket">
+            <li class="segmentMarket">
+                <h3 class="am-thumbnail-caption" style="text-align: center;padding: 0;" data-bind="text:name()"></h3>
+                <img class="am-thumbnail" style="margin: 0;border:0" data-bind="attr:{src:'images/SegmentMarket/'+img()}" />
+            </li>
+        </ul>
+        <h1>特性与效益</h1>
+        <ul data-bind="foreach: feature" class="ulstyle">
+            <li>
+                <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+            </li>
+        </ul>
+        <div data-bind="if:spec().length>0">
             <h1>技术规格</h1>
             <ul data-bind="foreach: spec" class="ulstyle">
                 <li>
                     <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
                 </li>
             </ul>
-            <!-- modal close button -->
-            <a href="" class="modal__close demo-close">
-                <svg class="" viewBox="0 0 24 24">
-              <path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/>
-              <path d="M0 0h24v24h-24z" fill="none"/>
-            </svg>
-            </a>
         </div>
+        <div data-bind="if:huangjing().length>0">
+            <h1>环境条件</h1>
+            <ul data-bind="foreach: huangjing" class="ulstyle">
+                <li>
+                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                </li>
+            </ul>
+        </div>
+        <div data-bind="if:inputs().length>0">
+            <h1>输入参数</h1>
+            <ul data-bind="foreach: inputs" class="ulstyle">
+                <li>
+                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                </li>
+            </ul>
+        </div>
+        <div data-bind="if:outputs().length>0">
+            <h1>输出参数</h1>
+            <ul data-bind="foreach: outputs" class="ulstyle">
+                <li>
+                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                </li>
+            </ul>
+        </div>
+
     </div>
-</div>
 
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/jquery/easing.js"></script>
-<script src="lib/knockoutjs/knockout-3.4.2.js"></script>
-<script src="lib/knockoutjs/linq.min.js"></script>
-<script type="text/javascript" src="js/productList/productlist.js?v=124"></script>
-<script type="text/javascript" src="js/productList/index.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="lib/jquery/easing.js"></script>
+    <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
+    <script src="lib/knockoutjs/linq.min.js"></script>
+    <script type="text/javascript" src="js/productList/productlist.js?v=124"></script>
+    <!-- <script type="text/javascript" src="js/productList/index.js"></script> -->
 
-<!-- <script src="lib/velocity/velocity.min.js"></script> -->
-<!-- <script src="lib/velocity/main.js"></script> -->
+    <!-- <script src="lib/velocity/velocity.min.js"></script> -->
+    <!-- <script src="lib/velocity/main.js"></script> -->
 
-<script>
-    function cancelFun() {
-        alert();
+    <script>
+        //等待dom元素加载完毕.
+        $(function() {
+            $("#dialog").dialog({
+                autoOpen: false,
+                modal: true,
+                width: $(window).width() * 0.6,
+                height: $(window).height() * 0.9,
+                show: {
+                    effect: "blind",
+                    duration: 500
+                },
+                hide: {
+                    effect: "slideUp",
+                    duration: 500
+                }
+            });
 
-    }
-    //等待dom元素加载完毕.
-    $(function() {
-
-        $(".treebox .level1>a").click(function() {
-            $(this).addClass('current') //给当前元素添加"current"样式
-                .find('i').addClass('down') //小箭头向下样式
-                .parent().next().slideDown('slow', 'easeOutQuad') //下一个元素显示
-                .parent().siblings().children('a').removeClass('current') //父元素的兄弟元素的子元素去除"current"样式
-                .find('i').removeClass('down').parent().next().slideUp('slow', 'easeOutQuad'); //隐藏
-            return false; //阻止默认时间
-        });
-    })
-</script>
+            $("#opener").on("click", function() {
+                $("#dialog").dialog("open");
+            });
+            $(".treebox .level1>a").click(function() {
+                $(this).addClass('current') //给当前元素添加"current"样式
+                    .find('i').addClass('down') //小箭头向下样式
+                    .parent().next().slideDown('slow', 'easeOutQuad') //下一个元素显示
+                    .parent().siblings().children('a').removeClass('current') //父元素的兄弟元素的子元素去除"current"样式
+                    .find('i').removeClass('down').parent().next().slideUp('slow', 'easeOutQuad'); //隐藏
+                return false; //阻止默认时间
+            });
+        })
+    </script>
 
 </html>
