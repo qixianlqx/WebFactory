@@ -55,6 +55,10 @@
     font-style: normal;
 }
 
+.menu li.level1 a.current i:before {
+    content: "\f078";
+}
+
 
 /*============修饰图标*/
 
@@ -75,12 +79,13 @@
 .level1 i {
     width: 20px;
     height: 10px;
-    background-image: url(../../images/arrow.png);
+    /* background-image: url(../../images/arrow.png); */
     background-repeat: no-repeat;
     display: block;
     position: absolute;
     right: 5px;
-    top: 20px;
+    /* top: 20px; */
+    top: 0;
 }
 
 .level1 i.down {

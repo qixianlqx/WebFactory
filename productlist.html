@@ -114,7 +114,10 @@
                 <div class="treebox">
                     <ul class="menu" data-bind="foreach: TypeList">
                         <li class="level1">
-                            <a href="#none" ata-bind="text: title" class="am-icon-battery-full"> <em data-bind="text: name" class="nameSty"></em><i class="down"></i></a>
+                            <a href="#none" ata-bind="text: title" class="am-icon-battery-full">
+                                <em data-bind="text: name" class="nameSty"></em>
+                                <i class="am-icon-chevron-right"></i>
+                            </a>
                             <ul class="level2" data-bind="foreach: infos">
                                 <li>
                                     <a href="javascript:;" data-bind="text: title,click:function(){$root.infoClick($data,$parent.name(),$index())}"></a>
