@@ -128,14 +128,13 @@
                     <li><a href="projectCase.html?v=12"> 工程案例 </a></li>
                     <li><a href="article_list.html" name="new">新闻资讯</a></li>
                     <li><a href="contact.html" name="message">联系我们</a>
-                        <div class="secondary-menu">
-
+                        <!-- <div class="secondary-menu">
                             <ul>
                                 <li>
                                     <a href="message.html" class="message"></a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </li>
                 </ul>
             </nav>
@@ -166,8 +165,8 @@
 
     <main style="padding-top: 15px;">
         <div class="am-g" style="width:100%;">
-            <div class="am-u-sm-3">
-                <div class="typeLevel"><i class="am-icon-sitemap" style="margin-right: 10px;"></i>应用案例 <em class="typefont"> Application Case</em> </div>
+            <div class="am-u-sm-3" style="padding: 5px;">
+                <div class="typeLevel"><i class="am-icon-bars" style="margin-right: 10px;"></i>工程案例 <em class="typefont"> </em> </div>
                 <ul class="am-list am-list-static am-list-border" data-bind="foreach: TypeList">
                     <li><a href="javascript:void(0)" data-bind="text: name,click:$root.typeClick">石油化工</a><i class="am-icon-angle-right am-icon-md  alowright" aria-hidden="true"></i></li>
                     <!-- <li><a href="#">风电能源</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
@@ -176,16 +175,16 @@
                     <li><a href="#">变电站电力所</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i> </li> -->
                 </ul>
             </div>
-            <div class="am-u-sm-9">
+            <div class="am-u-sm-9" style="padding: 5px;">
                 <div class="am-g">
                     <div class="am-u-sm-6">
-                        <i class="am-icon-btn am-success am-icon-diamond" data-bind="attr:{class:'am-icon-btn am-success '+className()} "></i>
+                        <i class="am-icon-btn am-success am-icon-sitemap" data-bind="attr:{class:'am-icon-btn am-success '+className()} "></i>
                         <i data-bind="text: currentName" class="typeNameSty"></i>
                     </div>
                     <div class="am-u-sm-6" style="text-align: right;height: 40px;">
                         <ol class="am-breadcrumb">
                             <li><a href="../WebFactory/index.html" class="am-icon-home">首页</a></li>
-                            <li><a href="../WebFactory/productlist.html">应用案例</a></li>
+                            <li><a href="../WebFactory/projectCase.html">工程案例</a></li>
                             <li class="am-active" data-bind="text: currentName()"></li>
                         </ol>
                     </div>
@@ -293,7 +292,7 @@
 </body>
 <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
 <script src="lib/knockoutjs/linq.min.js"></script>
-<script type="text/javascript" src="js/productList/projectCase.js"></script>
+<script type="text/javascript" src="js/pro/projectCase.js"></script>
 <script>
     function loadFun() {
 

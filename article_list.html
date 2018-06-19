@@ -13,28 +13,107 @@
     <link rel='icon' href='favicon.ico' type='image/x-ico' />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" href="css/default.min.css-t=227.css" />
-    <!--[if (gte IE 9)|!(IE)]><!-->
-    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-    <!--<![endif]-->
-    <!--[if lte IE 8 ]>
-    <script src="../../../../../libs.baidu.com/jquery/1.11.3/jquery.min.js"  ></script>
-    <script src="../../../../../cdn.staticfile.org/modernizr/2.8.3/modernizr.js"  ></script>
-    <script src="lib/amazeui/amazeui.ie8polyfill.min.js"  ></script>
-    <![endif]-->
+    <link rel="stylesheet" href="css/default.min.css-t=227.css">
+    <link rel="stylesheet" href="css/amazeui.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/templatemo_style.css">
+    <link rel="stylesheet" href="css/index2.css">
 
-    <script type="text/javascript" src="lib/handlebars/handlebars.min.js"></script>
-    <script type="text/javascript" src="lib/iscroll/iscroll-probe.js"></script>
+    <style>
+        .am-list li {
+            padding: 0 !important;
+        }
+        
+        .am-list {
+            width: 100%;
+        }
+        
+        .alowright {
+            position: absolute;
+            right: 8px;
+            top: 16%;
+            color: #28905a;
+        }
+        
+        .am-list li:first-child {
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+        }
+        
+        .am-list li:last-child {
+            margin-bottom: 0;
+            border-bottom-right-radius: .25rem;
+            border-bottom-left-radius: .25rem;
+        }
+        
+        .am-list li a:hover {
+            text-decoration: none;
+            color: #28905a;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .typelist li {
+            width: 48%;
+            padding-top: 10px;
+            margin: 5px;
+            text-align: center;
+            height: 350px;
+            border: 1px solid #e4e4e4;
+        }
+        
+        .typelist li img {
+            height: 80%;
+            width: 100%;
+        }
+        
+        .am-icon-btn {
+            padding-left: 2px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            line-height: 35px;
+            border-radius: 50%;
+            background-color: #eee;
+            color: #555;
+            text-align: center;
+        }
+        
+        .typeNameSty {
+            font-style: normal;
+            color: #0e90d2;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        main {
+            max-width: 75%;
+            margin: 0 auto;
+        }
+        
+        .newfont {
+            color: #666666;
+            font-family: 宋体;
+            font-size: 14px;
+            text-indent: 2em;
+        }
+    </style>
+
+    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <!-- Add fancyBox main JS and CSS files -->
+
     <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
-    <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
-    <script type="text/javascript" src="js/main.min.js-t=1"></script>
 </head>
 
-<body>
+<body onload="loadFun()">
     <header>
         <div class="header-top">
             <div class="width-center">
-                <div class="header-logo "><img src="images/logo.png" alt=""></div>
+                <div class="header-logo "><img src="images/Home/aoho.png" alt=""></div>
                 <div class="header-title div-inline">
                     <strong>奥和电子（香港）有限公司</strong>
                     <span>AOHO ELECTRONICS  LIMITED</span>
@@ -43,7 +122,6 @@
                     <span>全国咨询热线</span>
                     <span>00-000-00000000</span>
                 </div> -->
-
             </div>
         </div>
         <div class="header-nav">
@@ -52,205 +130,177 @@
             <nav>
                 <ul class="header-nav-ul am-collapse am-in">
                     <li class="on"><a href="index.html" name="index">网站首页</a></li>
-                    <li><a href="productlist.html" name="show">工程案例</a></li>
+                    <li><a href="productlist.html?v=12"> 产品中心 </a></li>
+                    <li><a href="projectCase.html?v=12"> 工程案例 </a></li>
                     <li><a href="article_list.html" name="new">新闻资讯</a></li>
                     <li><a href="contact.html" name="message">联系我们</a>
-                        <div class="secondary-menu">
-
+                        <!-- <div class="secondary-menu">
                             <ul>
                                 <li>
                                     <a href="message.html" class="message"></a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </li>
                 </ul>
-
-
-
-
             </nav>
         </div>
 
     </header>
-    <div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 8000, controlNav: false, directionNav: false  }">
-        <a class="prevbtn" href="#" onClick="javascript :history.back(-1);"></a>
-        <div class="search-box">
-            <div><input type="text" name="" placeholder="      请输入您需要的环保类别"></div>
-            <div class="search-box-btn"></div>
-        </div>
+
+    <div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{"controlNav":true,"directionNav":false}' style="height: 480px;">
         <ul class="am-slides">
-            <li><img src="images/banner.jpg" alt=""></li>
-            <li><img src="images/banner.jpg" alt=""></li>
-            <li><img src="images/banner.jpg" alt=""></li>
-            <li><img src="images/banner.jpg" alt=""></li>
+            <li>
+                <img src="images/slider/huolun.jpg" alt="" style="">
+                <!-- <div class="am-slider-desc">图片1</div> -->
+            </li>
+            <li>
+                <img src="images/slider/youtian.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/slider/lianyouchang.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/slider/youlun.jpg" alt="">
+            </li>
+            <li>
+                <img src="images/slider/zhanjing2.jpg" alt="">
+            </li>
         </ul>
     </div>
-    <div>
-        <section class="article-content">
-            <div class="article-protect-tab">
-                <span>公司新闻</span>
-                <span>行业新闻</span>
-                <span>环保知识</span>
-            </div>
-            <div class="article-protect-body">
-                <img src="images/pro1.jpg">
-                <ul>
+
+    <main style="padding-top: 15px;">
+        <div class="am-g" style="width:100%;">
+            <div class="am-u-sm-3" style="padding: 5px;">
+                <div class="typeLevel"><i class="am-icon-bars" style="margin-right: 10px;"></i>新闻资讯 <em class="typefont"> </em> </div>
+                <ul class="am-list am-list-static am-list-border" data-bind="foreach: TypeList">
                     <li>
-                        <a href="article_list_content.html">
-                            <h3>苹果供应商工厂涉嫌偷排废水 松江河道污染</h3>
-                            <span>2017-06-01</span>
-                        </a>
-                        <p>文汇报讯 (记者史博臻 通讯员任书建)就在公众把目光聚焦于企业地下排污之时，“钻空子”的不良企业却大张旗鼓地向河道...</p>
-                    </li>
-                    <li>
-                        <a href="article_list_content.html">
-                            <h3>苹果供应商工厂涉嫌偷排废水 松江河道污染</h3>
-                            <span>2017-06-01</span>
-                        </a>
-                        <p>文汇报讯 (记者史博臻 通讯员任书建)就在公众把目光聚焦于企业地下排污之时，“钻空子”的不良企业却大张旗鼓地向河道...</p>
-                    </li>
-                    <li>
-                        <a href="article_list_content.html">
-                            <h3>苹果供应商工厂涉嫌偷排废水 松江河道污染</h3>
-                            <span>2017-06-01</span>
-                        </a>
-                        <p>文汇报讯 (记者史博臻 通讯员任书建)就在公众把目光聚焦于企业地下排污之时，“钻空子”的不良企业却大张旗鼓地向河道...</p>
-                    </li>
+                        <a href="javascript:void(0)" data-bind="text: name,click:$root.typeClick"></a><i class="am-icon-angle-right am-icon-md  alowright" aria-hidden="true"></i></li>
+                    <!-- <li><a href="#">风电能源</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
+                    <li><a href="#">钢铁行业</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
+                    <li><a href="#">建筑水泥</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
+                    <li><a href="#">变电站电力所</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i> </li> -->
                 </ul>
             </div>
-        </section>
-        <section class="article-content">
-            <ul>
-                <li>
-                    <div class="article-date">
-                        <strong>01</strong>
-                        <p>2017/06</p>
-
+            <div class="am-u-sm-9" style="padding: 5px;">
+                <div class="am-g">
+                    <div class="am-u-sm-6">
+                        <i class="am-icon-btn am-success am-icon-sitemap" data-bind="attr:{class:'am-icon-btn am-success '+className()} "></i>
+                        <i data-bind="text: currentName" class="typeNameSty"></i>
                     </div>
-                    <div class="article-info">
-                        <a href="article_list_content.html">
-                            <h3>如何获得健康饮水</h3>
-                            <i class="font">&#xe6aa;</i>
-                            <p>随着生活水平的不断提高，大家对健康饮用水的关注度越来越高，但对如何获取健康饮用水，还会存有很多疑惑。近期开能环保将以“水博士”名义就相关问题进行...</p>
-                            <span>2017/06/01</span>
-                        </a>
+                    <div class="am-u-sm-6" style="text-align: right;height: 40px;">
+                        <ol class="am-breadcrumb">
+                            <li><a href="../WebFactory/index.html" class="am-icon-home">首页</a></li>
+                            <li><a href="../WebFactory/article_list.html">新闻资讯</a></li>
+                            <li class="am-active" data-bind="text: currentName()"></li>
+                        </ol>
                     </div>
-                </li>
-
-                <li>
-                    <div class="article-date">
-                        <strong>01</strong>
-                        <p>2017/06</p>
-
-                    </div>
-                    <div class="article-info">
-                        <a href="article_list_content.html">
-                            <h3>如何获得健康饮水</h3>
-                            <i class="font">&#xe6aa;</i>
-                            <p>随着生活水平的不断提高，大家对健康饮用水的关注度越来越高，但对如何获取健康饮用水，还会存有很多疑惑。近期开能环保将以“水博士”名义就相关问题进行...</p>
-                            <span>2017/06/01</span>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="article-date">
-                        <strong>01</strong>
-                        <p>2017/06</p>
-
-                    </div>
-                    <div class="article-info">
-                        <a href="article_list_content.html">
-                            <h3>如何获得健康饮水</h3>
-                            <i class="font">&#xe6aa;</i>
-                            <p>随着生活水平的不断提高，大家对健康饮用水的关注度越来越高，但对如何获取健康饮用水，还会存有很多疑惑。近期开能环保将以“水博士”名义就相关问题进行...</p>
-                            <span>2017/06/01</span>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="article-date">
-                        <strong>01</strong>
-                        <p>2017/06</p>
-
-                    </div>
-                    <div class="article-info">
-                        <a href="article_list_content.html">
-                            <h3>如何获得健康饮水</h3>
-                            <i class="font">&#xe6aa;</i>
-                            <p>随着生活水平的不断提高，大家对健康饮用水的关注度越来越高，但对如何获取健康饮用水，还会存有很多疑惑。近期开能环保将以“水博士”名义就相关问题进行...</p>
-                            <span>2017/06/01</span>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="article-date">
-                        <strong>01</strong>
-                        <p>2017/06</p>
-
-                    </div>
-                    <div class="article-info">
-                        <a href="article_list_content.html">
-                            <h3>如何获得健康饮水</h3>
-                            <i class="font">&#xe6aa;</i>
-                            <p>随着生活水平的不断提高，大家对健康饮用水的关注度越来越高，但对如何获取健康饮用水，还会存有很多疑惑。近期开能环保将以“水博士”名义就相关问题进行...</p>
-                            <span>2017/06/01</span>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="article-date">
-                        <strong>01</strong>
-                        <p>2017/06</p>
-
-                    </div>
-                    <div class="article-info">
-                        <a href="article_list_content.html">
-                            <h3>如何获得健康饮水</h3>
-                            <i class="font">&#xe6aa;</i>
-                            <p>随着生活水平的不断提高，大家对健康饮用水的关注度越来越高，但对如何获取健康饮用水，还会存有很多疑惑。近期开能环保将以“水博士”名义就相关问题进行...</p>
-                            <span>2017/06/01</span>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <div class="article_list_more_pages">
-            <ul>
-                <li><a>上一页</a></li>
-                <li class="article-current"><a>1</a></li>
-                <li><a>2</a></li>
-                <li><a>3</a></li>
-                <li><a>下一页</a></li>
-            </ul>
+                </div>
+                <ul class="am-list am-list-border" data-bind="foreach:infoList">
+                    <li data-bind="text:title" style="height: 50px;"></li>
+                </ul>
+            </div>
         </div>
+
         <div class="feature">
             <img class="sm" src="images/main5.jpg">
         </div>
-    </div>
+    </main>
+    <!-- 页尾 -->
     <footer class="footer">
-        <div class="footer-pc">
-            <ul>
-                <li>
-                    <p>网站首页 | 关于我们 | 工程案例 | 新闻资讯 | 联系我们</p>
-                </li>
-                <li>
-                    <p>地址：湖北省大冶市XXX大道XXX办公室</p>
-                </li>
-                <li>
-                    <P>电话：0714-8868331</P>
-                </li>
-                <li>
-                    <p>邮编：435100</p>
-                </li>
-            </ul>
-            <img src="images/qccode.png" alt="">
+        <!-- 返回首页 PC -->
+        <div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+            <a href="#top" title="回到首页">
+                <i class="am-icon-btn am-icon-arrow-up am-active"></i>
+            </a>
         </div>
-
+        <!-- 返回首页 移动 -->
         <div class="footer-phone">
             <button data-am-smooth-scroll class="am-btn am-btn-success">Top<i class="font">&#xe611;</i></button>
         </div>
+        <!-- 页尾 -->
+        <section class="btm-section secpadding">
+
+            <div class="am-g am-g-fixed">
+                <div class="am-u-sm-3">
+                    <div class="title-box clearfix ">
+                        <h3 class="title-box_primary">服务支持</h3>
+                    </div>
+                    <div class="list styled custom-list">
+                        <ul>
+                            <li>
+                                <a title="Snatoque penatibus et magnis dis partu rient montes ascetur ridiculus mus." href="#">服务介绍</a>
+                            </li>
+                            <li>
+                                <a title="Fusce feugiat malesuada odio. Morbi nunc odio gravida at cursus nec luctus." href="#">服务网点</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="am-u-sm-3">
+                    <div class="title-box clearfix ">
+                        <h3 class="title-box_primary">新闻\活动</h3>
+                    </div>
+                    <div class="list styled custom-list">
+                        <ul>
+                            <li>
+                                <a title="Snatoque penatibus et magnis dis partu rient montes ascetur ridiculus mus." href="#">企业新闻</a>
+                            </li>
+                            <li>
+                                <a title="Fusce feugiat malesuada odio. Morbi nunc odio gravida at cursus nec luctus." href="#">行业新闻</a>
+                            </li>
+                            <li>
+                                <a title="Penatibus et magnis dis parturient montes ascetur ridiculus mus." href="#">媒体视角</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="am-u-sm-3">
+                    <div class="title-box clearfix ">
+                        <h3 class="title-box_primary">关于我们</h3>
+                    </div>
+                    <div class="list styled custom-list">
+                        <ul>
+                            <li>
+                                <a title="Snatoque penatibus et magnis dis partu rient montes ascetur ridiculus mus." href="#">企业介绍</a>
+                            </li>
+                            <li>
+                                <a title="Fusce feugiat malesuada odio. Morbi nunc odio gravida at cursus nec luctus." href="#">企业文化</a>
+                            </li>
+                            <li>
+                                <a title="Penatibus et magnis dis parturient montes ascetur ridiculus mus." href="#">社会责任</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="am-u-sm-3">
+                    <div class="title-box clearfix ">
+                        <h3 class="title-box_primary">关注我们</h3>
+                    </div>
+                    <div class="qrcode">
+                        <img title="" src="images/Home/aoheCode.png" style="width: 102px;height: 102px;" alt="qrCode">
+                    </div>
+                </div>
+            </div>
+            <div class="am-g am-g-fixed">
+                <div class="am-u-sm-12">
+                    Copyright © 2018.奥和电子（香港）有限公司
+                </div>
+            </div>
+        </section>
     </footer>
 </body>
+<script src="lib/knockoutjs/knockout-3.4.2.js"></script>
+<script src="lib/knockoutjs/knockout.mapping-latest.js"></script>
+<script src="lib/knockoutjs/linq.min.js"></script>
+<script type="text/javascript" src="js/article_list/news.js"></script>
+<script type="text/javascript" src="js/article_list/article_list.js"></script>
+<script>
+    function loadFun() {
+
+
+    }
+</script>
 
 </html>

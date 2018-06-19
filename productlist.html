@@ -45,7 +45,7 @@
 
     <style>
         .ui-dialog-title {
-            font-size: 35px;
+            font-size: 30px;
             text-align: center;
         }
         /* 关闭按钮大小 */
@@ -91,13 +91,13 @@
                     <li><a href="projectCase.html?v=12"> 工程案例 </a></li>
                     <li><a href="article_list.html" name="new">新闻资讯</a></li>
                     <li><a href="contact.html" name="message">联系我们</a>
-                        <div class="secondary-menu">
+                        <!-- <div class="secondary-menu">
                             <ul>
                                 <li>
                                     <a href="message.html" class="message"></a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                     </li>
                 </ul>
             </nav>
@@ -128,12 +128,12 @@
 
     <main style="padding-top: 15px;">
         <div class="am-g" style="width:100%;">
-            <div class="am-u-sm-3">
-                <div class="typeLevel"><i class="am-icon-sitemap" style="margin-right: 10px;"></i>产品分类<em class="typefont"> Product Class </em></div>
+            <div class="am-u-sm-3" style="padding: 5px;">
+                <div class="typeLevel"><i class="am-icon-bars" style="margin-right: 10px;"></i>产品分类<em class="typefont">  </em></div>
                 <div class="treebox">
                     <ul class="menu" data-bind="foreach: TypeList">
                         <li class="level1">
-                            <a href="#none" ata-bind="text: title" class="am-icon-battery-full">
+                            <a href="#none" ata-bind="text: title" class="am-icon-bolt">
                                 <em data-bind="text: name" class="nameSty"></em>
                                 <i class="am-icon-chevron-right"></i>
                             </a>
@@ -146,24 +146,24 @@
                     </ul>
                 </div>
             </div>
-            <div class="am-u-sm-9">
+            <div class="am-u-sm-9" style="padding: 5px;">
                 <div class="am-g">
                     <div class="am-u-sm-6">
-                        <i class="am-icon-btn am-success am-icon-diamond" data-bind="attr:{class:'am-icon-btn am-success '+className()} "></i>
+                        <i class="am-icon-btn am-success am-icon-sitemap" data-bind="attr:{class:'am-icon-btn am-success '+className()} "></i>
                         <i data-bind="text: currentName" class="typeNameSty"></i>
                     </div>
                     <div class="am-u-sm-6" style="text-align: right;height: 40px;">
                         <ol class="am-breadcrumb">
                             <li><a href="../WebFactory/index.html" class="am-icon-home">首页</a></li>
                             <li><a href="../WebFactory/productlist.html">产品中心</a></li>
-                            <li class="am-active" data-bind="text: currentName()"></li>
+                            <li class="am-active" data-bind="text: currentName().substring(0,currentName().indexOf(' - '))||'直流屏'"></li>
                         </ol>
                     </div>
                 </div>
                 <ul class="am-avg-md-3 am-thumbnails typelist" data-bind="foreach: ProDetails">
                     <!-- <ul class="typelist am-avg-sm-2 am-avg-sm-3  am-avg-sm-4 am-thumbnails" data-bind="foreach: ProDetails"> -->
-                    <li style="position: relative;width: 30%;" data-bind="style:{width:$root.count==1 ?'50%':$root.count==2?'42%':'32%'}" class="am-animation-fade showDetial">
-                        <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 80%;width: 100%;" alt="Item Preview">
+                    <li style="position: relative;width: 30%;" data-bind="style:{width:$root.count==1 ?'60%':$root.count==2?'48%':'32%'}" class="am-animation-fade showDetial">
+                        <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 75%;width: 100%;" alt="Item Preview">
                         <div data-bind="text: name()" class="titleSty"> </div>
                         <a href="#0" style="transform: none;" class="cd-trigger" data-bind="click:$root.showClick,attr:{id:'trigger_'+$index()}">点我查看详情</a>
                     </li>
@@ -275,14 +275,14 @@
         <h1>特性与效益</h1>
         <ul data-bind="foreach: feature" class="ulstyle">
             <li>
-                <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
             </li>
         </ul>
         <div data-bind="if:spec().length>0">
             <h1>技术规格</h1>
             <ul data-bind="foreach: spec" class="ulstyle">
                 <li>
-                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                    <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
                 </li>
             </ul>
         </div>
@@ -290,7 +290,7 @@
             <h1>环境条件</h1>
             <ul data-bind="foreach: huangjing" class="ulstyle">
                 <li>
-                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                    <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
                 </li>
             </ul>
         </div>
@@ -298,7 +298,7 @@
             <h1>输入参数</h1>
             <ul data-bind="foreach: inputs" class="ulstyle">
                 <li>
-                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                    <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
                 </li>
             </ul>
         </div>
@@ -306,54 +306,30 @@
             <h1>输出参数</h1>
             <ul data-bind="foreach: outputs" class="ulstyle">
                 <li>
-                    <h3 class="am-thumbnail-caption" data-bind="text:$data"></h3>
+                    <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
                 </li>
             </ul>
         </div>
 
     </div>
+</div>
 
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-    <script src="lib/jquery/easing.js"></script>
-    <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
-    <script src="lib/knockoutjs/linq.min.js"></script>
-    <script type="text/javascript" src="js/productList/productlist.js?v=124"></script>
-    <!-- <script type="text/javascript" src="js/productList/index.js"></script> -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script src="lib/jquery/easing.js"></script>
+<script src="lib/knockoutjs/knockout-3.4.2.js"></script>
+<script src="lib/knockoutjs/linq.min.js"></script>
+<script type="text/javascript" src="js/pro/productlist.js?v=124"></script>
+<!-- <script type="text/javascript" src="js/productList/index.js"></script> -->
 
-    <!-- <script src="lib/velocity/velocity.min.js"></script> -->
-    <!-- <script src="lib/velocity/main.js"></script> -->
+<!-- <script src="lib/velocity/velocity.min.js"></script> -->
+<!-- <script src="lib/velocity/main.js"></script> -->
 
-    <script>
-        //等待dom元素加载完毕.
-        $(function() {
-            $("#dialog").dialog({
-                autoOpen: false,
-                modal: true,
-                width: $(window).width() * 0.6,
-                height: $(window).height() * 0.9,
-                show: {
-                    effect: "blind",
-                    duration: 500
-                },
-                hide: {
-                    effect: "slideUp",
-                    duration: 500
-                }
-            });
+<script>
+    //等待dom元素加载完毕.
+    $(function() {
 
-            $("#opener").on("click", function() {
-                $("#dialog").dialog("open");
-            });
-            $(".treebox .level1>a").click(function() {
-                $(this).addClass('current') //给当前元素添加"current"样式
-                    .find('i').addClass('down') //小箭头向下样式
-                    .parent().next().slideDown('slow', 'easeOutQuad') //下一个元素显示
-                    .parent().siblings().children('a').removeClass('current') //父元素的兄弟元素的子元素去除"current"样式
-                    .find('i').removeClass('down').parent().next().slideUp('slow', 'easeOutQuad'); //隐藏
-                return false; //阻止默认时间
-            });
-        })
-    </script>
+    })
+</script>
 
 </html>
