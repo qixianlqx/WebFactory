@@ -36,22 +36,40 @@
             color: #28905a;
         }
         
-        .am-list li:first-child {
-            border-top-left-radius: .25rem;
-            border-top-right-radius: .25rem;
+        .newsinfo i {
+            font-style: normal;
+            color: black;
+            font-size: 15px;
         }
         
-        .am-list li:last-child {
+        .newsinfo li {
+            font-style: normal;
+            border-top: 1px dashed #D3D3D3;
+            border-bottom: 1px dashed #D3D3D3;
+        }
+        
+        .newsinfo li:first-child {
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            border-top: 0;
+        }
+        
+        .newsinfo li:last-child {
             margin-bottom: 0;
             border-bottom-right-radius: .25rem;
             border-bottom-left-radius: .25rem;
         }
         
-        .am-list li a:hover {
+        .newsinfo li a:hover {
             text-decoration: none;
-            color: #28905a;
-            font-size: 18px;
-            font-weight: bold;
+            /* color: #28905a; */
+            /* font-size: 18px; */
+            /* font-weight: bold; */
+            background-color: #f7f5f5;
+        }
+        
+        .newsinfo li a:hover i {
+            color: #0e90d2;
         }
         
         .typelist li {
@@ -101,6 +119,23 @@
             font-size: 14px;
             text-indent: 2em;
         }
+        
+        .pageSty {
+            font-size: 15px;
+        }
+        
+        .gopage {
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .notgopage {
+            color: gray;
+        }
+        
+        .notgopage:hover {
+            color: gray;
+        }
     </style>
 
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
@@ -109,7 +144,7 @@
     <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 </head>
 
-<body onload="loadFun()">
+<body>
     <header>
         <div class="header-top">
             <div class="width-center">
@@ -196,9 +231,23 @@
                         </ol>
                     </div>
                 </div>
-                <ul class="am-list" data-bind="foreach:infoList">
-                    <li><a href="#"><i data-bind="text: title" style="margin-left: 15px;">每个人都有一个死角， 自己走不出来，别人也闯不进去。</i></a></li>
+                <ul class="am-list newsinfo" data-bind="visible:!$root.isLoad(),foreach:infoList">
+                    <li><a href="javascript:void(0)" data-bind="click:$root.nameClick"><i data-bind="text: title" style="margin-left: 15px;"></i></a></li>
                 </ul>
+                <dv class="page" data-bind="visible:$root.isLoad(),with:currenNewInfo">
+                    <div style="font-size: 20px;text-align: center; font-weight: bold;width: 100%;padding:20px;">
+                        <span data-bind="text:title"></span>
+                    </div>
+                    <div data-bind="html:desc"></div>
+                    <div data-bind="with:$root.pageinfo">
+                        <div class="pageSty">上一篇：
+                            <a data-bind="css:{'notgopage':proindex()==0}, text:protitle,click:function(){$root.pageClick(proindex())}" class="gopage"></a>
+                        </div>
+                        <div class="pageSty">下一篇：
+                            <a data-bind="css:{'notgopage':nextindex()==0},text:nexttitle,click:function(){$root.pageClick(nextindex())}" class="gopage"></a>
+                        </div>
+                    </div>
+                </dv>
             </div>
         </div>
 
@@ -296,11 +345,6 @@
 <script src="lib/knockoutjs/linq.min.js"></script>
 <script type="text/javascript" src="js/article_list/news.js"></script>
 <script type="text/javascript" src="js/article_list/article_list.js"></script>
-<script>
-    function loadFun() {
 
-
-    }
-</script>
 
 </html>

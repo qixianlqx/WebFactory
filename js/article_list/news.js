@@ -2,9 +2,10 @@ var news = [{
     typeid: 1,
     infos: [{
             id: 1,
-            title: '如何通过系统管理延长直流屏蓄电池使用寿命',
+            title: '如何通过系统管理延长直流屏蓄电池使用寿命？',
             img: '',
             apptime: '',
+            index: 1,
             desc: `<p class="newsfont">
                 目前110kV、35kV等级的中低压变电站内，配备蓄电池的设备主要是直流屏和通信装置。现就直流屏备用蓄电池的使用寿命问题做一简单探讨。
             </p>
@@ -86,6 +87,7 @@ var news = [{
             title: '还分不清交流屏与直流屏？看此文章秒懂',
             img: '',
             apptime: '',
+            index: 2,
             desc: `<p class="newsfont">
                     交流屏和直流屏在使用过程中一般会配合使用，是两种常见的配电屏，由于输出、用途等方面的不同有所区别，今天山西配电柜厂家锦泰恒为大家分析一下这两种配电屏的具体不同之处。
                 </p>
@@ -134,6 +136,7 @@ var news = [{
             title: '直流屏中蓄电池组选择的三大要点 ',
             img: '',
             apptime: '',
+            index: 3,
             desc: `<p class="newsfont">
                         一、蓄电池组数的选择
                     </p>
@@ -167,6 +170,7 @@ var news = [{
             title: '直流屏特点',
             img: '',
             apptime: '',
+            index: 1,
             desc: `<p class="newsfont">
 			直流屏特点：
 		</p>
@@ -224,6 +228,7 @@ var news = [{
             title: '什么是直流屏电源？',
             img: '',
             apptime: '',
+            index: 2,
             desc: `<p class="newsfont">
 			直流屏电源的作用是在调试交流双电源在更换装置过程中是否通用正常。如测试正常，那就只需一次闭合交流电源开过，观察各项电流模块正向输出的电压和极性了。
 		</p>
@@ -239,6 +244,7 @@ var news = [{
             title: '直流系统的基本工作原理',
             img: '',
             apptime: '',
+            index: 3,
             desc: `<p class="newsfont">
 			1、交流输入正常时
 		</p>
@@ -260,6 +266,7 @@ var news = [{
             title: '直流系统选型方案',
             img: '',
             apptime: '',
+            index: 4,
             desc: `<p class="newsfont">
 			GZDW系列选型方案一般分为八大类:
 		</p>
@@ -293,6 +300,7 @@ var news = [{
             title: '直流屏故障查询及保养维护',
             img: '',
             apptime: '',
+            index: 5,
             desc: `<p class="newsfont">
 			故障查询
 		</p>
