@@ -142,13 +142,12 @@ function ViewModel() {
     self.showImg = ko.observable(self.TypeList()[0].infos()[0].ProDetails()[0]);
     //点击显示产品详情事件
     self.showClick = function(item) {
-        //设置弹出框标题
-        $("#dialog").dialog("option", "title", item.name());
+        //设置弹出框标题   
+        //打开弹框
+        $("#dialog").dialog("option", "title", item.name()).dialog("open");
         //设置当前选择的产品
         self.showImg(item);
         //回到顶部
-        //打开弹出框
-        $("#dialog").dialog("open");
         $("#dialog").scrollTop(0);
     }
     self.count = self.TypeList()[0].infos().length;

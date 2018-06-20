@@ -316,19 +316,25 @@
 
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<script src="lib/jquery/easing.js"></script>
 <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
 <script src="lib/knockoutjs/linq.min.js"></script>
 <script type="text/javascript" src="js/pro/productlist.js?v=124"></script>
-<!-- <script type="text/javascript" src="js/productList/index.js"></script> -->
 
-<!-- <script src="lib/velocity/velocity.min.js"></script> -->
-<!-- <script src="lib/velocity/main.js"></script> -->
 
 <script>
-    //等待dom元素加载完毕.
     $(function() {
-
+        //初始化弹出框
+        $("#dialog").dialog({
+            width: $(window).width() * 0.6,
+            height: $(window).height() * 0.9,
+            draggable: false,
+            resizable: false,
+            autoOpen: false,
+            modal: true,
+            Cancel: function() {
+                $(this).dialog("close");
+            }
+        });
     })
 </script>
 
