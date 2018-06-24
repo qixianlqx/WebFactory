@@ -54,6 +54,10 @@
             font-size: 30px;
         }
         
+        .am-list {
+            font-size: 14px;
+        }
+        
         .menu span {
             margin: 20px 0 0 25%;
         }
@@ -65,6 +69,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             margin-bottom: 0;
+            font-size: 14px;
         }
         
         @media (max-width: 399px) {
@@ -89,6 +94,14 @@
             width: 100%;
         }
         
+        .fontsty {
+            text-indent: 2em;
+            font-family: 'Microsoft YaHei', Helvetica, Arial, Tahoma;
+            font-size: 14px;
+            color: #4D4D4D;
+            margin-bottom: 20px;
+        }
+        
         .fixa {
             height: 40px;
             padding-top: 6px;
@@ -103,11 +116,24 @@
         
         .am-thumbnails>li {
             text-align: center;
+            font-size: 14px;
         }
         
         .am-thumbnails>li span {
             display: block;
             margin-bottom: 10px;
+        }
+        
+        .newfont {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 0;
+        }
+        
+        .linkfont li {
+            padding: 5px;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -188,10 +214,7 @@
             </a>
         </div>
         <div class="am-list-news-bd">
-            <div style="text-indent: 2em;font-family: 'Microsoft YaHei',Helvetica,Arial,Tahoma;
-            font-size: 15px;
-            color: #4D4D4D;margin-bottom: 20px;
-           ">
+            <div class="fontsty">
                 奥和电子（香港）有限公司成立于2006年，成立多年来一直以 优质的品质和专业优良的服务受到广大客户的好评，已成为法国 SAFT集团和德国AEG集团产品目前在中国大陆的主要授权供货代理商。未来，奥和电子（香港）有限公司将一如既往的坚持一贯的经营理念，接受客户的建议和帮助，改进我们的不足之处，不断创新和进步，努力为客户着想，同时积极参与中国新能源发展。
             </div>
             <!-- <ul class="am-list">
@@ -231,6 +254,53 @@
             <a class="am-list-news-more am-btn am-btn-default news-more" href="###">查看更多 &raquo;</a>
         </div>
     </div>
+    <!-- 新闻资讯 -->
+    <div data-am-widget="list_news" class="am-list-news am-list-news-default">
+        <!--列表标题-->
+        <div class="am-list-news-hd am-cf">
+            <!--带更多链接-->
+            <a href="###" class="fixa" style="border-bottom: 0;height: 20px;">
+                <h2>新闻资讯</h2>
+            </a>
+        </div>
+        <div class="am-list-news-bd">
+            <ul class="am-list">
+                <li><a href="#" class="newfont">每个人都有一个死角， 自己走不出来，别人也闯不进去。</a></li>
+                <li><a href="#" class="newfont">我把最深沉的秘密放在那里。</a></li>
+                <li><a href="#" class="newfont">你不懂我，我不怪你。</a></li>
+                <li><a href="#" class="newfont">每个人都有一道伤口， 或深或浅，盖上布，以为不存在。</a></li>
+            </ul>
+        </div>
+        <div class="am-list-news-ft">
+            <a class="am-list-news-more am-btn am-btn-default news-more" href="###">查看更多 &raquo;</a>
+        </div>
+    </div>
+    <!-- 联系方式 -->
+    <div data-am-widget="list_news" class="am-list-news am-list-news-default">
+        <!--列表标题-->
+        <div class="am-list-news-hd am-cf">
+            <!--带更多链接-->
+            <a href="###" class="fixa " style="border-bottom: 0;height: 20px;">
+                <h2>联系方式</h2>
+                <span class="am-list-news-more am-fr">更多 &raquo;</span>
+            </a>
+        </div>
+        <div class="am-list-news-bd">
+            <ul class="am-list linkfont" style="font-size: 15px;margin-bottom: 10px;">
+                <li>公司名称：<span>奥和电子（香港）有限公司</span></li>
+                <li>联系电话：<span><a href="tel:0755-29985866">0755-29985866</a></span></li>
+                <li>传真：<span>0755-27958566</span></li>
+                <li>E-mail：<span>simon@aohoelec.com</span></li>
+                <li>公司地址：<span>深圳市龙岗区龙城街道华兴路天汇大厦</span></li>
+            </ul>
+        </div>
+    </div>
+    <footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">
+        <div class="am-footer-miscs ">
+            <p>CopyRight©2018</p>
+            <p>奥和电子（香港）有限公司</p>
+        </div>
+    </footer>
 
 
 </body>
