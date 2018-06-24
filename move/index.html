@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>奥和电子（香港）有限公司</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../images/favicon.png">
+    <link rel='icon' href='../favicon.ico' type='image/x-ico' />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="css/amaze.min.css" />
+    <link rel="stylesheet" href="css/amazeui.min.css" />
+    <script type="text/javascript" src="js/jquery.min.js" />
+    <script type="text/javascript" src="js/handlebars.min.js"></script>
+    <script type="text/javascript" src="js/amazeui.min.js"></script>
+    <style>
+        .am-header .am-header-title {
+            margin: 0;
+        }
+        
+        .am-header-default {
+            background-color: #29905b
+        }
+        
+        .am-slides img {
+            height: 150px;
+        }
+        
+        .am-slider-a1 .am-control-nav li a.am-active {
+            background-color: white;
+        }
+        
+        .am-thumbnails>li {
+            padding-bottom: 0;
+        }
+        
+        .am-icon-btn {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            font-size: 24px;
+            line-height: 48px;
+            border-radius: 10%;
+            background-color: white;
+            color: #29905b;
+            border: 1px solid #29905b;
+            font-size: 30px;
+        }
+        
+        .menu span {
+            margin: 20px 0 0 25%;
+        }
+        
+        .menu p {
+            margin-top: 10px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 399px) {
+            .am-avg-sm-5>li {
+                width: 33.33333333%;
+            }
+            .menu span {
+                margin: 20px 0 0 25%;
+            }
+        }
+        
+        @media (min-width: 400px) {
+            .am-avg-sm-5>li {
+                width: 20%;
+            }
+            .menu span {
+                margin: 20px 0 0 18%;
+            }
+        }
+        
+        .news-more {
+            width: 100%;
+        }
+        
+        .fixa {
+            height: 40px;
+            padding-top: 6px;
+            line-height: 40px;
+            border-top: 2px solid #29905b;
+            border-bottom: 1px solid #dedede;
+        }
+        
+        .am-thumbnail {
+            margin-bottom: 10px;
+        }
+        
+        .am-thumbnails>li {
+            text-align: center;
+        }
+        
+        .am-thumbnails>li span {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 公司名称 -->
+    <header data-am-widget="header" class="am-header am-header-default">
+        <!-- <div class="am-header-left am-header-nav">
+            <a href="#left-link" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div> -->
+        <h1 class="am-header-title">
+            <a href="#title-link">奥和（香港）电子有限公司</a>
+        </h1>
+    </header>
+    <!-- 轮播图 -->
+    <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"controlNav":true,"directionNav":false}'>
+        <ul class="am-slides">
+            <li>
+                <img src="../images/slider/huolun.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/youtian.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/lianyouchang.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/youlun.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/zhanjing2.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <!-- 菜单 -->
+    <ul class="menu am-avg-sm-5 am-thumbnails">
+        <li>
+            <!-- class="am-btn am-btn-success am-icon-home" -->
+            <a href="about.html">
+                <span class="am-icon-btn am-icon-home"></span>
+                <p>首页</p>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span class="am-icon-btn am-icon-list"></span>
+                <p>产品中心</p>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span class="am-icon-btn  am-icon-bar-chart"></span>
+                <p>工程案例</p>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span class="am-icon-btn  am-icon-newspaper-o"></span>
+                <p>新闻资讯</p>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span class="am-icon-btn  am-icon-phone"></span>
+                <p>联系我们</p>
+            </a>
+        </li>
+    </ul>
+    <!-- 关于我们 -->
+    <div data-am-widget="list_news" class="am-list-news am-list-news-default">
+        <!--列表标题-->
+        <div class="am-list-news-hd am-cf">
+            <!--带更多链接-->
+            <a href="###" class="fixa">
+                <h2>关于我们</h2>
+            </a>
+        </div>
+        <div class="am-list-news-bd">
+            <div style="text-indent: 2em;font-family: 'Microsoft YaHei',Helvetica,Arial,Tahoma;
+            font-size: 15px;
+            color: #4D4D4D;margin-bottom: 20px;
+           ">
+                奥和电子（香港）有限公司成立于2006年，成立多年来一直以 优质的品质和专业优良的服务受到广大客户的好评，已成为法国 SAFT集团和德国AEG集团产品目前在中国大陆的主要授权供货代理商。未来，奥和电子（香港）有限公司将一如既往的坚持一贯的经营理念，接受客户的建议和帮助，改进我们的不足之处，不断创新和进步，努力为客户着想，同时积极参与中国新能源发展。
+            </div>
+            <!-- <ul class="am-list">
+                <li class="am-g">
+                    <a>
+                    </a>
+                </li>
+            </ul> -->
+        </div>
+        <!--更多在底部-->
+        <div class="am-list-news-ft">
+            <a class="am-list-news-more am-btn am-btn-default news-more" href="###">查看更多 &raquo;</a>
+        </div>
+    </div>
+    <!-- 产品中心 -->
+    <div data-am-widget="list_news" class="am-list-news am-list-news-default">
+        <!--列表标题-->
+        <div class="am-list-news-hd am-cf">
+            <!--带更多链接-->
+            <a href="###" class="fixa">
+                <h2>产品中心</h2>
+            </a>
+        </div>
+        <div class="am-list-news-bd">
+            <ul class="am-avg-sm-2 am-thumbnails">
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /><span>案多发发到付</span></li>
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
+                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
+            </ul>
+        </div>
+        <div class="am-list-news-ft">
+            <a class="am-list-news-more am-btn am-btn-default news-more" href="###">查看更多 &raquo;</a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
