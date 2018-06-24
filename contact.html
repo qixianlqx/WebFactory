@@ -24,17 +24,19 @@
             margin: 0 auto;
         }
         
-        .contact-icon li:nth-child(1) {
+        .contact-icon li {
+            width: 25% !important;
+        }
+        /*  .contact-icon li:nth-child(1) {
             width: 39% !important;
         }
-        
-        .contact-icon li:nth-child(2) {
+      .contact-icon li:nth-child(2) {
             width: 22% !important;
         }
         
         .contact-icon li:nth-child(3) {
             width: 39% !important;
-        }
+        } */
         
         .contact-icon>li:nth-child(1)>span:nth-child(1) {
             width: 70px;
@@ -49,6 +51,12 @@
         }
         
         .contact-icon>li:nth-child(3)>span:nth-child(1) {
+            width: 70px;
+            height: 70px;
+            background: url("images/contact/fax.png") center center/contain no-repeat;
+        }
+        
+        .contact-icon>li:nth-child(4)>span:nth-child(1) {
             width: 70px;
             height: 70px;
             background: url("images/contact/map.png") center center/contain no-repeat;
@@ -135,10 +143,11 @@
         <ul class="contact-icon">
             <li><span title="邮件"></span><span>邮件:</span><span>simon@aohoelec.com</span></li>
             <li><span title="电话"></span><span>电话:</span><span>0755-29985866</span></li>
+            <li><span title="传真"></span><span>传真:</span><span>0755-27958566</span></li>
             <li><span title="公司地址"></span><span>公司地址:</span><span>深圳市龙岗区龙城街道<br>华兴路天汇大厦A座311</span></li>
         </ul>
         <main class="contact">
-            <iframe class="concact-iframe" src="map.html" frameborder="0" scrolling="no"></iframe>
+            <iframe class="concact-iframe" style="width: 80%;" src="map.html" frameborder="0" scrolling="no"></iframe>
         </main>
     </div>
     <!-- 页尾 -->
