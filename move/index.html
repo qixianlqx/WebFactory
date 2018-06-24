@@ -135,6 +135,44 @@
             padding: 5px;
             font-size: 14px;
         }
+        
+        .side_nav {
+            height: 50px;
+            z-index: 99;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            overflow: hidden;
+            background: #343434;
+        }
+        
+        .side_nav dl {
+            text-align: center;
+            height: 50px;
+        }
+        
+        .side_nav dl dd {
+            float: left;
+            width: 25%;
+        }
+        
+        .side_nav dl dt {
+            float: left;
+            width: 25%;
+        }
+        
+        .side_nav dl a {
+            display: block;
+            color: #fff;
+            font-size: 12px;
+            height: 50px;
+        }
+        
+        .side_nav dl a span {
+            display: block;
+            padding-top: 5px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -301,7 +339,31 @@
             <p>奥和电子（香港）有限公司</p>
         </div>
     </footer>
-
+    <div class="side_nav">
+        <dl>
+            <dt>
+                    <a href="Default.aspx">
+                        <span style="font-size: 22px;" class="am-icon-home"></span>
+                        返回首页
+                    </a>
+            </dt>
+            <dd>
+                <a href="tel:010-69597571、400-166-0779">
+                    <span style="font-size: 22px;" class="am-icon-phone"></span> 客服电话
+                </a>
+            </dd>
+            <dd>
+                <a href="sms:13810020553">
+                    <span style="font-size: 22px;" class="am-icon-envelope-o"></span> 短信咨询
+                </a>
+            </dd>
+            <dd>
+                <a href="#">
+                    <span style="font-size: 22px;" class="am-icon-arrow-up"></span> 回到顶部
+                </a>
+            </dd>
+        </dl>
+    </div>
 
 </body>
 
