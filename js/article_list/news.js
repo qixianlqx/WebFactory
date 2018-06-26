@@ -1,3 +1,44 @@
+// 分类明细
+function infoList(id, title, img, apptime, desc, index) {
+    var self = this;
+    //self.typeid = ko.observable(tppeid);
+    self.id = ko.observable(id);
+    self.index = ko.observable(index);
+    self.title = ko.observable(title);
+    self.img = ko.observable(img);
+    self.apptime = ko.observable(apptime);
+    self.desc = ko.observable(desc);
+}
+//分类
+function TypeList(id, name, className, infos) {
+    var self = this;
+    self.id = ko.observable(id);
+    self.name = ko.observable(name);
+    self.infos = ko.observableArray(infos || []);
+    self.className = ko.observable(className);
+}
+
+function setItem(infos) {
+
+    var list = ([]);
+
+    if (!infos || infos.length == 0) list;
+
+    Enumerable.from(infos).forEach(function(item) {
+        list.push(new infoList(item.id(), item.title(), item.img(), item.apptime(), item.desc(), item.index()));
+    });
+    return list;
+}
+
+function pageinfo(proindex, protitle, nextindex, nexttitle, index) {
+    var self = this;
+    self.protitle = ko.observable(protitle);
+    self.proindex = ko.observable(proindex);
+    self.nexttitle = ko.observable(nexttitle);
+    self.nextindex = ko.observable(nextindex);
+    self.index = ko.observable(index);
+}
+
 var news = [{
     typeid: 1,
     infos: [{

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>奥和电子（香港）有限公司</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../images/favicon.png">
+    <link rel='icon' href='../favicon.ico' type='image/x-ico' />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="css/amaze.min.css" />
+    <link rel="stylesheet" href="css/amazeui.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" src="js/jquery.min.js" />
+    <script type="text/javascript" src="js/handlebars.min.js"></script>
+    <script type="text/javascript" src="js/amazeui.min.js"></script>
+    <style>
+        .addressFont {
+            font-size: 15px;
+        }
+        
+        .contact-icon {
+            margin-top: 20px;
+        }
+        
+        .contact-icon li {
+            background-size: 100%;
+        }
+        
+        .contact-icon>li span {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        
+        .contact-icon>li i {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .contact-icon>li:nth-child(1)>span:nth-child(1) {
+            background: url("../images/contact/email.png") center center/contain no-repeat;
+        }
+        
+        .contact-icon>li:nth-child(2)>span:nth-child(1) {
+            background: url("../images/contact/phone.png") center center/contain no-repeat;
+        }
+        
+        .contact-icon>li:nth-child(3)>span:nth-child(1) {
+            background: url("../images/contact/fax.png") center center/contain no-repeat;
+        }
+        
+        .contact-icon>li:nth-child(4)>span:nth-child(1) {
+            background: url("../images/contact/map.png") center center/contain no-repeat;
+        }
+        
+        .contact-icon>li:nth-child(5)>span:nth-child(1) {
+            background: url("../images/contact/Internet.png") center center/contain no-repeat;
+        }
+        
+        .am-avg-sm-5>li {
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 公司名称 -->
+    <header data-am-widget="header" class="am-header am-header-default">
+        <!-- <div class="am-header-left am-header-nav">
+            <a href="#left-link" class="">
+                <i class="am-header-icon am-icon-home"></i>
+            </a>
+        </div> -->
+        <h1 class="am-header-title">
+            <a href="#title-link">奥和（香港）电子有限公司</a>
+        </h1>
+    </header>
+    <!-- 轮播图 -->
+    <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"controlNav":true,"directionNav":false}'>
+        <ul class="am-slides">
+            <li>
+                <img src="../images/slider/huolun.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/youtian.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/lianyouchang.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/youlun.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/zhanjing2.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <!-- 菜单 -->
+    <ul class="menu am-avg-sm-5 am-thumbnails">
+        <li>
+            <!-- class="am-btn am-btn-success am-icon-home" -->
+            <a href="index.html">
+                <span class="am-icon-btn am-icon-home"></span>
+                <p>首页</p>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span class="am-icon-btn am-icon-list"></span>
+                <p>产品中心</p>
+            </a>
+        </li>
+        <li>
+            <a href="about.html">
+                <span class="am-icon-btn  am-icon-bar-chart"></span>
+                <p>工程案例</p>
+            </a>
+        </li>
+        <li>
+            <a href="article_list.html">
+                <span class="am-icon-btn  am-icon-newspaper-o"></span>
+                <p>新闻资讯</p>
+            </a>
+        </li>
+
+    </ul>
+    <div>
+
+        <!-- <ul class="contact-icon">
+            <li><span title="邮件"></span> <span class="desc">simon@aohoelec.com</span></li>
+            <li><span title="电话"></span> <span class="desc">0755-29985866</span></li>
+            <li><span title="传真"></span> <span class="desc">0755-27958566</span></li>
+            <li><span title="公司地址"></span> <span>深圳市龙岗区龙城街道<br>华兴路天汇大厦A座311</span></li>
+        </ul> -->
+        <div data-am-widget="list_news" class="am-list-news am-list-news-default" style="margin-top: 20px">
+            <div class="am-list-news-hd am-cf">
+                <!--带更多链接-->
+                <a href="##" class="fixa noborder">
+                    <h2>联系我们</h2>
+                </a>
+            </div>
+            <div class="am-list-news-bd">
+                <ul class="contact-icon am-list am-list-static " style="margin-top: 0;">
+                    <li><span title="邮件"></span> <i class="desc">simon@aohoelec.com</i></li>
+                    <li><span title="电话"></span> <i class="desc"> <a href="tel:0755-29985866" class="am-btn am-btn-success am-round  am-btn-sm">0755-29985866</a> </i></li>
+                    <li><span title="传真"></span> <i class="desc">0755-27958566</i></li>
+                    <li><span title="公司地址" style="position: relative;float: left;"></span> <i>深圳市龙岗区龙城街道华兴路天汇大厦A座311</i></li>
+                    <li><span title="网址"></span> <i class="desc">www.zgaoho.com</i></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contact" style="padding-left: 5px;">
+            <iframe class="concact-iframe" style="width: 100%;height:250px;" src="../map.html" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+    <footer data-am-widget="footer" class="am-footer am-footer-default" data-am-footer="{  }">
+        <div class="am-footer-miscs ">
+            <p>CopyRight©2018</p>
+            <p>奥和电子（香港）有限公司</p>
+        </div>
+    </footer>
+    <div class="side_nav">
+        <dl>
+            <dd>
+                <a href="index.html">
+                    <span style="font-size: 22px;" class="am-icon-home"></span> 回到首页
+                </a>
+            </dd>
+            <dd>
+                <a href="tel:010-69597571、400-166-0779">
+                    <span style="font-size: 22px;" class="am-icon-phone"></span> 客服电话
+                </a>
+            </dd>
+            <dd>
+                <a href="sms:13810020553">
+                    <span style="font-size: 22px;" class="am-icon-envelope-o"></span> 短信咨询
+                </a>
+            </dd>
+            <dd>
+                <a href="#">
+                    <span style="font-size: 22px;" class="am-icon-arrow-up"></span> 回到顶部
+                </a>
+            </dd>
+        </dl>
+    </div>
+</body>
+
+</html>
