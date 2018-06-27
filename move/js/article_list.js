@@ -33,7 +33,7 @@
          self.count = item.infos().length;
          self.infoList(setItem(item.infos()));
          self.className(item.className());
-         self.currentName(' - ' + item.name());
+         self.currentName('&nbsp;-&nbsp;' + item.name());
          self.isLoad(true);
      };
      //点击新闻标题

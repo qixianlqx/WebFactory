@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <title>奥和电子（香港）有限公司</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="alternate icon" type="image/png" href="../images/favicon.png">
+    <link rel='icon' href='../favicon.ico' type='image/x-ico' />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="css/amaze.min.css" />
+    <link rel="stylesheet" href="css/amazeui.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="../lib/jquery-ui-1.12.1/jquery-ui.min.css">
+
+    <script type="text/javascript" src="js/jquery.min.js" />
+
+    <script type="text/javascript" src="js/handlebars.min.js"></script>
+    <script type="text/javascript" src="../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <script type="text/javascript" src="js/amazeui.min.js"></script>
+    <script type="text/javascript" src="../js/article_list/news.js"></script>
+    <style>
+        .am-avg-sm-5>li {
+            width: 25%;
+        }
+        
+        .alowright {
+            position: absolute;
+            right: 8px;
+            top: 16%;
+            color: #28905a;
+        }
+        
+        .am-active {
+            font-size: 15px;
+            color: #696969;
+        }
+        
+        .newsinfo {
+            margin: 0;
+        }
+        
+        .newsinfo i {
+            font-style: normal;
+            color: dimgrey;
+        }
+        
+        .desc .descDetial {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .titleSty {
+            font-size: 12px;
+        }
+        
+        .am-panel i {
+            font-style: normal;
+        }
+        
+        .typename {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        
+        .chrild i {
+            color: #696969;
+            font-weight: bold;
+        }
+        
+        .chrild a.current {
+            background-color: #DCDCDC;
+        }
+        
+        .typelist li {
+            width: 100%;
+            padding-top: 10px;
+            margin: 5px;
+            text-align: center;
+            height: 280px;
+            border: 1px solid #e4e4e4;
+        }
+        
+        .am-thumbnail {
+            margin: 0 auto;
+            height: 156px !important;
+            width: 98% !important;
+            margin-bottom: 10px !important;
+        }
+        
+        .am-thumbnails a {
+            color: #4D4D4D;
+            font-size: 13px;
+        }
+        
+        .am-thumbnails i {
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 公司名称 -->
+    <header data-am-widget="header" class="am-header am-header-default">
+        <!-- <div class="am-header-left am-header-nav">
+        <a href="#left-link" class="">
+            <i class="am-header-icon am-icon-home"></i>
+        </a>
+    </div> -->
+        <h1 class="am-header-title">
+            <a href="#title-link">奥和（香港）电子有限公司</a>
+        </h1>
+    </header>
+    <!-- 轮播图 -->
+    <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"controlNav":true,"directionNav":false}'>
+        <ul class="am-slides">
+            <li>
+                <img src="../images/slider/huolun.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/youtian.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/lianyouchang.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/youlun.jpg" alt="">
+            </li>
+            <li>
+                <img src="../images/slider/zhanjing2.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <!-- 菜单 -->
+    <ul class="menu am-avg-sm-5 am-thumbnails">
+        <li>
+            <!-- class="am-btn am-btn-success am-icon-home" -->
+            <a href="index.html">
+                <span class="am-icon-btn am-icon-home"></span>
+                <p>首页</p>
+            </a>
+        </li>
+        <li>
+            <a href="article_list_M.html">
+                <span class="am-icon-btn am-icon-list"></span>
+                <p>工程案例</p>
+            </a>
+        </li>
+        <li>
+            <a href="article_list_M.html">
+                <span class="am-icon-btn  am-icon-newspaper-o"></span>
+                <p>新闻资讯</p>
+            </a>
+        </li>
+        <li>
+            <a href="contact_M.html">
+                <span class="am-icon-btn  am-icon-phone"></span>
+                <p>联系我们</p>
+            </a>
+        </li>
+    </ul>
+    <!-- 产品中心 -->
+    <div data-am-widget="list_news" class="am-list-news am-list-news-default" style="margin-top: 20px">
+        <div class="am-list-news-hd am-cf">
+            <!--带更多链接-->
+            <a href="productlist_M.html" class="fixa noborder">
+                <h2>产品中心<span class="am-active" data-bind="text:currentName,click:$root.typetitleclick"></span></h2>
+            </a>
+        </div>
+        <div class="am-list-news-bd">
+            <ul class="am-list admin-sidebar-list" id="collapase-nav-1" data-bind="visible:!$root.isLoad(),foreach: TypeList">
+                <li class="am-panel">
+                    <a class="collapseA" data-am-collapse="{parent: '#collapase-nav-1', target: '#user-nav'}" data-bind="attr:{target:'user-nav'+$index()}">
+                        <i class="typename" data-bind="text: name"></i> <i class="am-icon-angle-right am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="am-list am-collapse admin-sidebar-sub" id="user-nav" data-bind="attr:{id:'user-nav'+$index()},foreach: infos">
+                        <li class="chrild" data-bind="click:function(){$root.infoClick($data,$parent.name(),$index())}">
+                            <a href="javascript:void(0)"> <i data-bind="text: title"></i></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="am-avg-sm-1 am-avg-sm-2 am-thumbnails" data-bind="visible:$root.isLoad(),foreach: ProDetails">
+                <li>
+                    <a><img class="am-thumbnail" data-bind="attr:{src:'../images/productList2/'+img()}" /><span><i data-bind="text: name()"></i>案多发发到付</span></a>
+                </li>
+            </ul>
+
+            <!-- <ul class="typelist am-avg-sm-2 am-avg-sm-3  am-avg-sm-4 am-thumbnails" data-bind="foreach: ProDetails">
+                <li style="position: relative;width: 30%;" data-bind="style:{width:$root.count==1 ?'100%':'48%'}" class="am-animation-fade showDetial">
+                    <img data-bind="attr:{src:'../images/productList2/'+img()}" style="height: 75%;width: 100%;" alt="Item Preview">
+                    <div data-bind="text: name()" class="titleSty"> </div>
+                    <a href="#0" style="transform: none;" class="cd-trigger" data-bind="click:$root.showClick,attr:{id:'trigger_'+$index()}">点我查看详情</a>
+                </li>
+            </ul> -->
+        </div>
+    </div>
+    <!-- 页底 -->
+    <footer data-am-widget="footer" class="am-footer am-footer-default" style="" data-am-footer="{  }">
+        <div class="am-footer-miscs ">
+            <p>CopyRight©2018</p>
+            <p>奥和电子（香港）有限公司</p>
+        </div>
+    </footer>
+    <!-- 页底菜单 -->
+    <div class="side_nav">
+        <dl>
+            <dd>
+                <a href="index.html">
+                    <span style="font-size: 22px;" class="am-icon-home"></span> 回到首页
+                </a>
+            </dd>
+            <dd>
+                <a href="tel:010-69597571、400-166-0779">
+                    <span style="font-size: 22px;" class="am-icon-phone"></span> 客服电话
+                </a>
+            </dd>
+            <dd>
+                <a href="sms:13810020553">
+                    <span style="font-size: 22px;" class="am-icon-envelope-o"></span> 短信咨询
+                </a>
+            </dd>
+            <dd>
+                <a href="#">
+                    <span style="font-size: 22px;" class="am-icon-arrow-up"></span> 回到顶部
+                </a>
+            </dd>
+        </dl>
+    </div>
+    <div id="dialog">
+        <div data-bind="with:showImg" style="padding:10px;">
+            <h1>介绍</h1>
+            <p data-bind="html:desc" style="margin-top: 20px;"> </p>
+            <img data-bind="attr:{src:img().length>0 ? '../images/productList2/'+img():''}" class="am-img-thumbnail am-radius" style="height:250px;width:50%;" alt="" />
+            <h1>市场分类</h1>
+            <ul class="am-avg-lg-5 am-thumbnails" data-bind="foreach: segmentMarket">
+                <li class="segmentMarket">
+                    <h3 class="am-thumbnail-caption" style="text-align: center;padding: 0;" data-bind="text:name()"></h3>
+                    <img class="am-thumbnail" style="margin: 0;border:0" data-bind="attr:{src:'../images/SegmentMarket/'+img()}" />
+                </li>
+            </ul>
+            <h1>特性与效益</h1>
+            <ul data-bind="foreach: feature" class="ulstyle">
+                <li>
+                    <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
+                </li>
+            </ul>
+            <div data-bind="if:spec().length>0">
+                <h1>技术规格</h1>
+                <ul data-bind="foreach: spec" class="ulstyle">
+                    <li>
+                        <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
+                    </li>
+                </ul>
+            </div>
+            <div data-bind="if:huangjing().length>0">
+                <h1>环境条件</h1>
+                <ul data-bind="foreach: huangjing" class="ulstyle">
+                    <li>
+                        <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
+                    </li>
+                </ul>
+            </div>
+            <div data-bind="if:inputs().length>0">
+                <h1>输入参数</h1>
+                <ul data-bind="foreach: inputs" class="ulstyle">
+                    <li>
+                        <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
+                    </li>
+                </ul>
+            </div>
+            <div data-bind="if:outputs().length>0">
+                <h1>输出参数</h1>
+                <ul data-bind="foreach: outputs" class="ulstyle">
+                    <li>
+                        <h3 class="am-thumbnail-caption" data-bind="html:$data"></h3>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <script src="../lib/knockoutjs/knockout-3.4.2.js"></script>
+    <script src="../lib/knockoutjs/knockout.mapping-latest.js"></script>
+    <script src="../lib/knockoutjs/linq.min.js"></script>
+    <script type="text/javascript" src="../js/proList.js"></script>
+    <script type="text/javascript" src="js/productlist.js?v=124"></script>
+    <script src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+    <script>
+        $(function() {
+
+            //初始化弹出框
+            $("#dialog").dialog({
+                width: $(window).width() * 0.6,
+                height: $(window).height() * 0.9,
+                draggable: false,
+                resizable: false,
+                autoOpen: false,
+                modal: true,
+                Cancel: function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $.each($(".admin-sidebar-list .am-panel"), function(index, obj) {
+                $(obj).find(".collapseA").attr({
+                    "data-am-collapse": "{parent: '#collapase-nav-1', target: '#user-nav" + index + "'}"
+                });
+            });
+
+        });
+    </script>
+
+</html>
