@@ -1,3 +1,42 @@
+//如果是跳转过来就根据参数取得
+function setProByUrl(obj) {
+    var data = productLists.Data('../');
+    var prolist = [];
+    var proid = jQuery.url.param("id");
+    var typeid = jQuery.url.param("typeid");
+    var infotypeid = jQuery.url.param("infotypeid");
+    var proinfo = null;
+    var currentName = '';
+    $.each(data, function(index, obj) {
+        if (obj.id() == typeid) {
+            currentName = ' - ' + obj.name();
+
+            $.each(obj.infos(), function(i, info) {
+
+                if (info.id() == infotypeid) {
+                    currentName = ' - ' + info.title();
+
+                    $.each(info.ProDetails(), function(j, item) {
+                        if (item.id() == proid) {
+                            proinfo = item;
+                            return false;
+                        }
+                    });
+                    return false;
+                }
+            });
+            return false;
+        }
+    });
+    if (proinfo) {
+        //设置产品详情
+        obj.showImg(proinfo);
+        obj.isShowNew(true);
+        obj.isLoad(false);
+        obj.currentName(currentName);
+    }
+}
+
 function ViewModel() {
     var self = this;
 
@@ -34,4 +73,9 @@ function ViewModel() {
     //self.className = ko.observable(self.TypeList()[0].className());
     self.className = ko.observable('am-icon-sitemap');
 }
-ko.applyBindings(new ViewModel());
+var vm = new ViewModel();
+ko.applyBindings(vm);
+
+$(function() {
+    setProByUrl(vm);
+});

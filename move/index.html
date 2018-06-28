@@ -57,10 +57,21 @@
         .indexfont {
             font-size: 14px;
         }
+        
+        .am-thumbnail {
+            margin: 0 auto;
+            height: 120px !important;
+            width: 98% !important;
+            margin-bottom: 10px !important;
+        }
+        
+        .am-thumbnails i {
+            font-style: normal;
+        }
     </style>
 </head>
 
-<body onload="load()">
+<body>
 
     <!-- 公司名称 -->
     <header data-am-widget="header" class="am-header am-header-default">
@@ -161,20 +172,15 @@
                 <h2>产品中心</h2>
             </a>
         </div>
-        <div class="am-list-news-bd">
-            <ul class="am-avg-sm-2 am-thumbnails">
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /><span>案多发发到付</span></li>
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></li>
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></li>
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></li>
-                <li><img class="am-thumbnail" src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></li>
+        <div class="am-list-news-bd" style="margin-bottom: 10px;">
+            <ul class="am-avg-sm-2 am-thumbnails" data-bind="foreach: ProDetails">
+                <li>
+                    <a data-bind="attr:{href:'productlist_M.html?infotypeid='+infotypeid+'&typeid='+typeid+'&id='+proinfo.id()}"><img class="am-thumbnail" data-bind="attr:{src:'../images/productList2/'+proinfo.img()}" /><span><i data-bind="text: proinfo.name()"></i></span></a>
+                </li>
             </ul>
         </div>
         <div class="am-list-news-ft">
-            <a class="am-list-news-more am-btn am-btn-default news-more" href="###">查看更多 &raquo;</a>
+            <a class="am-list-news-more am-btn am-btn-default news-more" href="productlist_M.html">查看更多 &raquo;</a>
         </div>
     </div>
     <!-- 新闻资讯 -->
@@ -253,19 +259,11 @@
     </div>
 
 </body>
-<script>
-    function load() {
-        // var IScroll = $.AMUI.iScroll;
-        // var myScroll = new IScroll('#wrapper', {
-        //     mouseWheel: true,
-        //     scrollbars: false
-        // });
-
-        // var myScroll = new IScroll('#wrapper', {
-        //     mouseWheel: true
-        // });
-
-    }
-</script>
+<script src="../lib/knockoutjs/knockout-3.4.2.js"></script>
+<script src="../lib/knockoutjs/knockout.mapping-latest.js"></script>
+<script src="../lib/knockoutjs/linq.min.js"></script>
+<script src="../lib/knockoutjs/linq.min.js"></script>
+<script type="text/javascript" src="../js/proList.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 
 </html>

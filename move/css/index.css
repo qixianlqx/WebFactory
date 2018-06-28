@@ -96,16 +96,16 @@
 }
 
 .fixa {
-    height: 24px;
+    height: 40px;
     padding-top: 6px;
-    line-height: 24px;
+    /* line-height: 40px; */
     border-top: 2px solid #29905b;
     border-bottom: 1px solid #dedede;
 }
 
 .noborder {
     border-bottom: 0;
-    height: 20px;
+    height: 40px;
     border-bottom: 0;
     font-size: 15px;
 }

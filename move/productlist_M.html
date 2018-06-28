@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/amaze.min.css" />
     <link rel="stylesheet" href="css/amazeui.min.css" />
     <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="../lib/jquery-ui-1.12.1/jquery-ui.min.css">
 
     <script type="text/javascript" src="js/jquery.min.js" />
 
@@ -120,7 +119,7 @@
         }
         
         .am-avg-sm-3>li {
-            width: 30%;
+            width: 32%;
         }
     </style>
 </head>
@@ -189,13 +188,13 @@
     <div data-am-widget="list_news" class="am-list-news am-list-news-default" style="margin-top: 20px">
         <div class="am-list-news-hd am-cf">
             <!--带更多链接-->
-            <a href="productlist_M.html" class="fixa noborder">
-                <h2>产品中心<span class="am-active" data-bind="text:currentName,click:$root.typetitleclick"></span></h2>
+            <a href="productlist_M.html" class="fixa">
+                <h3>产品中心<span class="am-active" data-bind="text:currentName,click:$root.typetitleclick"></span></h3>
             </a>
         </div>
         <div class="am-list-news-bd">
             <ul class="am-list admin-sidebar-list" id="collapase-nav-1" data-bind="visible:!$root.isLoad() && !$root.isShowNew(),foreach: TypeList">
-                <li class="am-panel">
+                <li class="am-panel" data-bind="style:{'borderTop':$index()==0? 0:1}">
                     <a class="collapseA" data-am-collapse="{parent: '#collapase-nav-1', target: '#user-nav'}" data-bind="attr:{target:'user-nav'+$index()}">
                         <i class="typename" data-bind="text: name"></i> <i class="am-icon-angle-right am-fr am-margin-right"></i>
                     </a>
@@ -213,14 +212,17 @@
                 </li>
             </ul>
             <div data-bind="visible:$root.isShowNew(),with:showImg" style="padding:10px;">
-                <h1>介绍</h1>
+                <div style="font-size: 20px;text-align: center; font-weight: bold;width: 100%;padding:20px;">
+                    <span data-bind="text:name"></span>
+                </div>
+                <h1 style="margin-top: 10px;">介绍</h1>
                 <p data-bind="html:desc" style="margin-top: 20px;"> </p>
                 <img data-bind="attr:{src:img().length>0 ? '../images/productList2/'+img():''}" class="am-img-thumbnail am-radius" style="height:250px;width:100%;" alt="" />
                 <h1>市场分类</h1>
                 <ul class="am-avg-sm-3 am-thumbnails" data-bind="foreach: segmentMarket">
                     <li class="segmentMarket">
                         <h3 class="am-thumbnail-caption" style="text-align: center;padding: 0;" data-bind="text:name()"></h3>
-                        <img class="am-thumbnail" style="margin: 0;border:0;background-size: 20%;height: 90px;" data-bind="attr:{src:'../images/SegmentMarket/'+img()}" />
+                        <img class="am-thumbnail" style="margin: 0;border:0;background-size: 15%;height: 60px;" data-bind="attr:{src:'../images/SegmentMarket/'+img()}" />
                     </li>
                 </ul>
                 <h1>特性与效益</h1>
@@ -303,8 +305,8 @@
     <script src="../lib/knockoutjs/knockout.mapping-latest.js"></script>
     <script src="../lib/knockoutjs/linq.min.js"></script>
     <script type="text/javascript" src="../js/proList.js"></script>
-    <script type="text/javascript" src="js/productlist.js?v=124"></script>
-    <script src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="../lib/jquery/jquery.url.js"></script>
+    <script type="text/javascript" src="js/productlist.js"></script>
 
     <script>
         $(function() {
