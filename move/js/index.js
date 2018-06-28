@@ -1,6 +1,7 @@
 function ViewModel() {
     var self = this;
     self.ProDetails = ko.observableArray(getProctions());
+    self.news = ko.observableArray(getNews());
 }
 var vm = new ViewModel();
 ko.applyBindings(vm);
@@ -24,6 +25,31 @@ function getProctions() {
                     return false;
                 }
             });
+        });
+    });
+    return prolist;
+}
+//初始化新闻数据
+function getNews() {
+
+    var prolist = [];
+    var count = 0;
+    $.each(news, function(index, obj) {
+        $.each(obj.infos, function(i, info) {
+            //每个类型取两条
+            if (i > 1) return false;
+
+            if (prolist.length < 4) {
+                count = Enumerable.from(prolist).count(function(itemInfo) { return itemInfo ? itemInfo.proinfo.title == info.title : true; });
+                if (prolist.length > 0 && count == 0) {
+                    prolist.push({ proinfo: info, typeid: obj.typeid });
+                } else if (prolist.length == 0) {
+                    prolist.push({ proinfo: info, typeid: obj.typeid });
+                }
+            } else {
+                return false;
+            }
+
         });
     });
     return prolist;

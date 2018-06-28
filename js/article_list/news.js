@@ -41,6 +41,7 @@ function pageinfo(proindex, protitle, nextindex, nexttitle, index) {
 
 var news = [{
     typeid: 1,
+    name: '公司新闻',
     infos: [{
             id: 1,
             title: '如何通过系统管理延长直流屏蓄电池使用寿命？',
@@ -205,7 +206,8 @@ var news = [{
         }
     ]
 }, {
-    typeid: 1,
+    typeid: 2,
+    name: '行业新闻',
     infos: [{
             id: 1,
             title: '直流屏特点',

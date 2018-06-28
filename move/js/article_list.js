@@ -35,6 +35,8 @@
          self.className(item.className());
          self.currentName('&nbsp;-&nbsp;' + item.name());
          self.isLoad(true);
+         self.isShowNew(false);
+
      };
      //点击新闻标题
      self.nameClick = function(info) {
@@ -76,3 +78,44 @@
  }
  var viewInfo = new ViewModel();
  ko.applyBindings(viewInfo);
+
+ /******首页跳转过来处理******/
+ function setProByUrl(obj) {
+
+     var prolist = [];
+     var proid = jQuery.url.param("id");
+     var typeid = jQuery.url.param("typeid");
+     var proinfo = null;
+     var infoList = [];
+
+     var currentName = '';
+     $.each(news, function(index, obj) {
+         if (obj.typeid == typeid) {
+             currentName = ' - ' + obj.name;
+             infoList = obj.infos;
+             $.each(infoList, function(i, info) {
+
+                 if (info.id == proid) {
+                     proinfo = info;
+
+                     return false;
+                 }
+             });
+             return false;
+         }
+     });
+     if (proinfo) {
+
+         obj.currenNewInfo(ko.mapping.fromJS(proinfo));
+         obj.isShowNew(true);
+         obj.isLoad(true);
+         //设置产品详情
+         //obj.infoList(ko.mapping.fromJS(infoList)());
+         obj.currentName(currentName);
+         // setPage(proinfo.index);
+     }
+ }
+
+ $(function() {
+     setProByUrl(viewInfo);
+ });
