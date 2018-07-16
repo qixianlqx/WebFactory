@@ -206,12 +206,13 @@ main {
 }
 
 .segmentMarket {
-    height: 125px !important;
+    height: 85px !important;
     border: 1px solid #ddd;
     padding-top: 10px !important;
     border-radius: 10%;
+    font-size: 12px;
     margin-right: 5px;
-    width: 120px !important;
+    width: 90px !important;
     text-align: center;
     margin-top: 5px;
 }

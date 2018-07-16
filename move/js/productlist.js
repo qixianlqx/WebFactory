@@ -4,24 +4,15 @@ function setProByUrl(obj) {
     var prolist = [];
     var proid = jQuery.url.param("id");
     var typeid = jQuery.url.param("typeid");
-    var infotypeid = jQuery.url.param("infotypeid");
     var proinfo = null;
     var currentName = '';
     $.each(data, function(index, obj) {
         if (obj.id() == typeid) {
             currentName = ' - ' + obj.name();
-
-            $.each(obj.infos(), function(i, info) {
-
-                if (info.id() == infotypeid) {
-                    currentName = ' - ' + info.title();
-
-                    $.each(info.ProDetails(), function(j, item) {
-                        if (item.id() == proid) {
-                            proinfo = item;
-                            return false;
-                        }
-                    });
+            $.each(obj.ProDetails(), function(j, item) {
+                if (item.id() == proid) {
+                    currentName = ' - ' + item.name();
+                    proinfo = item;
                     return false;
                 }
             });
@@ -40,16 +31,14 @@ function setProByUrl(obj) {
 function ViewModel() {
     var self = this;
 
+    var dd = 0;
     self.TypeList = ko.observableArray(productLists.Data('../'));
-    self.ProDetails = ko.observableArray(productLists.setItem(self.TypeList()[0].infos()[0].ProDetails()));
+    self.ProDetails = ko.observableArray(productLists.setItem(self.TypeList()[0].ProDetails()));
     //点击产品类型
-    self.infoClick = function(item, name, count) {
+    self.typeClick = function(item) {
         self.count = item.ProDetails().length;
-        if (name == item.title()) {
-            self.currentName(" - " + item.title());
-        } else {
-            self.currentName(" - " + name + " - " + item.title());
-        }
+        self.currentName(" - " + item.name());
+
         self.ProDetails(productLists.setItem(item.ProDetails()));
         self.isLoad(true);
         //重新加载点击事件(延迟加载元素后需要重新绑定事件，否则事件无效)         
@@ -68,7 +57,7 @@ function ViewModel() {
     }
     self.isShowNew = ko.observable(false);
     self.isLoad = ko.observable(false);
-    self.count = self.TypeList()[0].infos().length;
+    self.count = self.TypeList()[0].ProDetails().length;
     self.currentName = ko.observable('');
     //self.className = ko.observable(self.TypeList()[0].className());
     self.className = ko.observable('am-icon-sitemap');

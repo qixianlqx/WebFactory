@@ -34,7 +34,7 @@ function ViewModel() {
         new TypeList(1, '石油化工', 'am-icon-pie-chart', [new infoList(1, '天津LNG接收站', 'sy_tianjing.jpg')]),
         new TypeList(2, '风电能源', 'am-icon-won', [new infoList(1, '三峡新能源公司', 'fn_sanxia.jpg'), new infoList(2, '国家电投集团', 'fn_guojia.jpg')]),
         new TypeList(3, '钢铁行业', 'am-icon-gears', [new infoList(1, '潍坊特钢集团有限公司', 'gt_tangfag.jpg'), new infoList(2, '襄汾星原钢铁集团', 'gt_xiangfen.jpg')]),
-        new TypeList(4, '建筑水泥', 'am-icon-institution', [new infoList(1, '赞皇金隅水泥有限公司', 'sl_zanhuang.jpg'), new infoList(2, '叶城天山水泥有限责任公司', 'sl_yecheng.jpg')]),
+        //new TypeList(4, '建筑水泥', 'am-icon-institution', [new infoList(1, '赞皇金隅水泥有限公司', 'sl_zanhuang.jpg'), new infoList(2, '叶城天山水泥有限责任公司', 'sl_yecheng.jpg')]),
         new TypeList(5, '变电站电力所', 'am-icon-bolt', [new infoList(1, '迁安市九江线材有限责任公司', 'bdz_qianan.jpg'), new infoList(2, '京能中电电力工程有限公司', 'bdz_jingnong.jpg'), new infoList(3, "北京四方继保工程技术有限公司", 'bdz_sifang.jpg')])
     ]);
     self.isLoad = ko.observable(false);

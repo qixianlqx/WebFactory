@@ -19,14 +19,8 @@
     <link rel="stylesheet" href="css/templatemo_style.css">
     <link rel="stylesheet" href="css/index2.css">
 
-    <!--[if (gte IE 9)|!(IE)]><!-->
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-    <!--<![endif]-->
-    <!--[if lte IE 8 ]>
-    <script src="../../../../../libs.baidu.com/jquery/1.11.3/jquery.min.js"  ></script>
-    <script src="../../../../../cdn.staticfile.org/modernizr/2.8.3/modernizr.js"  ></script>
-    <script src="lib/amazeui/amazeui.ie8polyfill.min.js" ></script>
-    <![endif]-->
+
     <script type="text/javascript" src="lib/handlebars/handlebars.min.js"></script>
     <script type="text/javascript" src="lib/iscroll/iscroll-probe.js"></script>
     <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
@@ -51,12 +45,12 @@
                 </div> -->
             </div>
         </div>
-        <div class="header-nav am-sticky-placeholder" data-am-sticky>
+        <div class="header-nav " data-am-sticky>
             <button class="am-show-sm-only am-collapsed font f-btn" data-am-collapse="{target: '.header-nav'}">Menu <i
                 class="am-icon-bars"></i></button>
             <nav>
                 <ul class="header-nav-ul am-collapse am-in">
-                    <li class="on"><a href="index.html?v=12" name="index">网站首页</a></li>
+                    <li class="activeSel"><a href="index.html?v=12" name="index">网站首页</a></li>
                     <li><a href="productlist.html?v=12"> 产品中心 </a></li>
                     <li><a href="projectCase.html?v=12"> 工程案例 </a></li>
                     <li><a href="article_list.html?v=123" name="new">新闻资讯</a></li>
@@ -96,18 +90,9 @@
         </ul>
     </div>
     <main>
-        <div class="index-only-small">
-            <ul>
-                <li><a href="about.html?v=12">关于我们</a></li>
-                <li><a href="productlist.html?v=12">产品中心</a></li>
-                <li><a href="projectCase.html?v=12">工程案例</a></li>
-                <li><a href="article_list.html?v=12">新闻资讯</a></li>
-                <li><a href="contact.html?v=12">联系我们</a></li>
-            </ul>
-        </div>
         <div class="index-main-title">
             <p>关于应用</p>
-            <span>在海运、铁路、电信、医疗和能源方面，能够为诸多不同类型的应用提供电池解决方案</span>
+            <span>在海运、铁路、电力、石油化工和新能源等方面，能够为诸多不同类型的应用提供电池解决方案</span>
         </div>
         <div class="index-main-body">
             <ul>
@@ -131,19 +116,8 @@
                 </li>
             </ul>
         </div>
-        <div class="index-sm-banner">
-            <img src="images/smbanner.jpg">
-            <p>
-                我司成立于2006年，成立多年来一直以 优质的品质和专业优良的服务受到广大客户的好评，已成为法国 SAFT集团和德国AEG集团产品目前在中国大陆的主要授权供货代理商。未来，奥和电子（香港）有限公司将一如既往的坚持一贯的经营理念，接受客户的建议和帮助，改进我们的不足之处，不断创新和进步，为客户着想，同时积极参与中国新能源发展
-            </p>
-            <span></span>
-        </div>
     </main>
 
-    <div class="feature">
-        <!-- <img class="big" src="images/main4.jpg"  > -->
-        <img class="sm" src="images/main5.jpg">
-    </div>
     <main style="padding-bottom: 20px;">
         <div class="index-main-hg-title">
             <p>产品与解决方案</p>
@@ -151,16 +125,15 @@
         </div>
         <div class="index-main-body">
             <div class=" ">
-                <ul class="content-list-items">
+                <ul class="content-list-items" data-bind="foreach: ProDetails">
                     <li class="content-list-item content-type-product">
-                        <a href="" class="proA">
-                            <div class="content-list-item-image" style="background-image:url('images/pro/highpower_lithium_battery_box_3.jpg?itok=YjKfwX8w');"></div>
-                            <div class="content-list-item-copy">
-                                大功率锂电池箱
+                        <a class="proA" data-bind="attr:{href:'productlist.html?typeid='+typeid+'&id='+proinfo.id()}">
+                            <div class="content-list-item-image" data-bind="style:{backgroundImage:'url(images/productList2/'+proinfo.img()+')'}"></div>
+                            <div class="content-list-item-copy" style="white-space: pre-wrap;" data-bind=" text:proinfo.name()">
                             </div>
                         </a>
                     </li>
-                    <li class="content-list-item content-type-product">
+                    <!-- <li class="content-list-item content-type-product">
                         <a href="" class="proA">
                             <div class="content-list-item-image" style="background-image:url('images/pro/250-500_batterysystem_3.jpg?itok=YjKfwX8w');"></div>
                             <div class="content-list-item-copy">
@@ -215,7 +188,7 @@
                                 Flex'ion
                             </div>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -224,86 +197,18 @@
         <div class="index-main-body">
             <div class="col_w900 col_w900_last">
                 <div class="col_w420 float_l">
-                    <h2>专业SAFT, AEG, ARTS</h2>
-                    <p class="aboutOtherFont">奥和电子（香港）有限公司成立于2006年，成立多年来一直以 优质的品质和专业优良的服务受到广大客户的好评，已成为法国 SAFT集团和德国AEG集团产品目前在中国大陆的主要授权供货代理商。未来，奥和电子（香港）有限公司将一如既往的坚持一贯的经营理念，接受客户的建议和帮助，改进我们的不足之处，不断创新和进步，努力为客户着想，同时积极参与中国新能源发展。
+                    <h2>专业SAFT</h2>
+                    <p class="aboutOtherFont">奥和电子（香港）有限公司成立于2006年，成立多年来一直以 优质的品质和专业优良的服务受到广大客户的好评，已成为法国 SAFT集团和国内外知名直流屏厂家的主要授权供货代理商。未来，奥和电子（香港）有限公司将一如既往的坚持一贯的”诚实守信、品质第一“经营理念，接受客户的建议和帮助，改进我们的不足之处，不断创新和进步，努力为客户着想，同时积极参与中国新能源发展。
                     </p>
-                    <div class="productshow">
-                        <div class="scrollcontainer">
-                            <ul>
-                                <li style="margin:0;">
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s9.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s10.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s11.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s12.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s1.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s2.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s3.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s4.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s5.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s6.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s7.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <a href="###"><img src="images/threePower/wall_s8.jpg" alt=""></a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <a class="abtn aleft" href="#left" style="display: none;">左移</a>
-                        <a class="abtn aright" href="#right" style="display: none;">右移</a>
-                    </div>
                 </div>
                 <div class="col_w420 float_r">
                     <h2 style="margin: 0">简介</h2>
                     <div class="lbe_box">
                         <h3 style="font-weight: normal;">
-                            <a href="">关于法国SAFT（帅福得）集团</a>
+                            <a href="">SAFT帅福得是一家全球知名的电池制造商</a>
                         </h3>
-                        <p style="color: #666;font-size: 13px;margin: 0">总部设在法国的
-                            <strong>SAFT</strong>世界领先的镍镉、镍氢、锂电池制造企业 产品被用于移动产品和其他工厂的定点加工产品。</p>
+                        <p style="color: #666;font-size: 13px;margin: 0">从研发、制造到销售，SAFT是行业的领军企业，并拥有最优秀的电池研发和制造员工。SAFT是一家国际化公司，雇员来自全球49个国家, 是全球最严苛客户的首选制造商，电池、系统和解决方案在全球各类细分市场中具有重要影响。
+                        </p>
                         <p>
                             <img src="images/threePower/saft_factory.jpg" style="width: 276px;height: 121px;" alt="pic">
                         </p>
@@ -311,11 +216,9 @@
                     <hr style="border-top: 1px solid #4a4d51;">
                     <div class="lbe_box">
                         <h3>
-                            <a href="">关于德国AEG集团</a>
+                            <a href="">细分市场</a>
                         </h3>
-                        <p style="margin: 0">创办60多年来，德国
-                            <strong>AEG</strong>集团以强劲的可靠性以及世界级的工程设计著称。今天
-                            <strong>AEG</strong>集团可提供世界上最广泛的系列产品及服务组合，包括优质电源供给系统，电源解决方案及服务。</p>
+                        <p style="margin: 0"><strong>SAFT</strong>帅福得涉足各类细分市场，从航天、海运、铁路、电力到石油化工，能够为诸多不同类型的应用提供电池解决方案</p>
 
                         <div class="cleaner"></div>
                     </div>
@@ -410,6 +313,8 @@
     <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
     <script src="lib/knockoutjs/linq.min.js"></script>
     <script type="text/javascript" src="js/proList.js"></script>
+    <script type="text/javascript" src="js/article_list/news.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/GoPhone.js"></script>
 </body>
 

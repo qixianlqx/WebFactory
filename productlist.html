@@ -28,20 +28,9 @@
 
     <link rel="stylesheet" href="css/productList/ModalNormalize.min.css">
     <link rel="stylesheet" href="css/productList/ModalStyle.css">
-
-
-    <!--[if (gte IE 9)|!(IE)]><!-->
     <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
-    <!--<![endif]-->
-    <!--[if lte IE 8 ]>
-    <script src="../../../../../libs.baidu.com/jquery/1.11.3/jquery.min.js"  ></script>
-    <script src="../../../../../cdn.staticfile.org/modernizr/2.8.3/modernizr.js" ></script>
-    <script src="lib/amazeui/amazeui.ie8polyfill.min.js"  ></script>
-    <![endif]-->
-
     <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
     <script type="text/javascript" src="js/main.min.js-t=1"></script>
-
 
     <style>
         .ui-dialog-title {
@@ -60,6 +49,92 @@
         #dialog h1 {
             border-left: 7px solid #28905a;
             padding-left: 10px;
+        }
+        
+        .am-list li {
+            padding: 0 !important;
+        }
+        
+        .am-list {
+            width: 100%;
+        }
+        
+        .alowright {
+            position: absolute;
+            right: 8px;
+            top: 16%;
+            color: #28905a;
+        }
+        
+        .am-list li:first-child {
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+        }
+        
+        .am-list li:last-child {
+            margin-bottom: 0;
+            border-bottom-right-radius: .25rem;
+            border-bottom-left-radius: .25rem;
+        }
+        
+        .am-list li a:hover {
+            text-decoration: none;
+            color: #28905a;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .typelist li {
+            width: 48%;
+            padding-top: 10px;
+            margin: 5px;
+            text-align: center;
+            height: 350px;
+            border: 1px solid #e4e4e4;
+        }
+        
+        .typelist li img {
+            height: 80%;
+            width: 100%;
+        }
+        
+        .am-icon-btn {
+            padding-left: 2px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            font-size: 20px;
+            line-height: 35px;
+            border-radius: 50%;
+            background-color: #eee;
+            color: #555;
+            text-align: center;
+        }
+        
+        .typeNameSty {
+            font-style: normal;
+            color: #0e90d2;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        main {
+            max-width: 75%;
+            margin: 0 auto;
+        }
+        
+        .ulsty {
+            list-style-type: disc;
+            padding-left: 15px;
+            margin: 5px;
+        }
+        
+        .selectType {
+            color: #29905b;
+            background-color: #f7f5f5 !important;
+            font-size: 15px;
         }
     </style>
 
@@ -86,8 +161,8 @@
                 class="am-icon-bars"></i></button>
             <nav>
                 <ul class="header-nav-ul am-collapse am-in">
-                    <li class="on"><a href="index.html" name="index">网站首页</a></li>
-                    <li><a href="productlist.html?v=12"> 产品中心 </a></li>
+                    <li><a href="index.html" name="index">网站首页</a></li>
+                    <li class="activeSel"><a href="productlist.html?v=12"> 产品中心 </a></li>
                     <li><a href="projectCase.html?v=12"> 工程案例 </a></li>
                     <li><a href="article_list.html" name="new">新闻资讯</a></li>
                     <li><a href="contact.html" name="message">联系我们</a>
@@ -129,22 +204,12 @@
     <main style="padding-top: 15px;">
         <div class="am-g" style="width:100%;">
             <div class="am-u-sm-3" style="padding: 5px;">
-                <div class="typeLevel"><i class="am-icon-bars" style="margin-right: 10px;"></i>产品分类<em class="typefont">  </em></div>
-                <div class="treebox">
-                    <ul class="menu" data-bind="foreach: TypeList">
-                        <li class="level1">
-                            <a href="#none" ata-bind="text: title" class="am-icon-bolt">
-                                <em data-bind="text: name" class="nameSty"></em>
-                                <i class="am-icon-chevron-right"></i>
-                            </a>
-                            <ul class="level2" data-bind="foreach: infos">
-                                <li>
-                                    <a href="javascript:;" data-bind="text: title,click:function(){$root.infoClick($data,$parent.name(),$index())}"></a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="typeLevel"><i class="am-icon-bars" style="margin-right: 10px;"></i>产品分类 <em class="typefont"> </em> </div>
+                <ul id="typeUL" class="am-list am-list-static am-list-border" data-bind="foreach: TypeList">
+                    <li data-bind="click:$root.typeClick,attr:{typeid:id}">
+                        <a href="javascript:void(0)" data-bind="text: name"></a><i class="am-icon-angle-right am-icon-md  alowright" aria-hidden="true"></i>
+                    </li>
+                </ul>
             </div>
             <div class="am-u-sm-9" style="padding: 5px;">
                 <div class="am-g">
@@ -156,14 +221,14 @@
                         <ol class="am-breadcrumb">
                             <li><a href="../WebFactory/index.html" class="am-icon-home">首页</a></li>
                             <li><a href="../WebFactory/productlist.html">产品中心</a></li>
-                            <li class="am-active" data-bind="text: currentName().substring(0,currentName().indexOf(' - '))||'直流屏'"></li>
+                            <li class="am-active" data-bind="text: currentName()"></li>
                         </ol>
                     </div>
                 </div>
                 <ul class="am-avg-md-3 am-thumbnails typelist" data-bind="foreach: ProDetails">
                     <!-- <ul class="typelist am-avg-sm-2 am-avg-sm-3  am-avg-sm-4 am-thumbnails" data-bind="foreach: ProDetails"> -->
-                    <li style="position: relative;width: 30%;" data-bind="style:{width:$root.count==1 ?'60%':$root.count==2?'48%':'32%'}" class="am-animation-fade showDetial">
-                        <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 75%;width: 100%;" alt="Item Preview">
+                    <li style="position: relative;width: 30%;height:230px;padding:5px;" data-bind="style:{width:$root.count==1 ?'60%':$root.count==2?'48%':'32%'}" class="am-animation-fade showDetial">
+                        <img data-bind="attr:{src:'images/productList2/'+img()}" style="height: 72%;width: 100%;" alt="Item Preview">
                         <div data-bind="text: name()" class="titleSty"> </div>
                         <a href="#0" style="transform: none;" class="cd-trigger" data-bind="click:$root.showClick,attr:{id:'trigger_'+$index()}">点我查看详情</a>
                     </li>
@@ -266,7 +331,7 @@
         <ul class="am-avg-lg-5 am-thumbnails" data-bind="foreach: segmentMarket">
             <li class="segmentMarket">
                 <h3 class="am-thumbnail-caption" style="text-align: center;padding: 0;" data-bind="text:name()"></h3>
-                <img class="am-thumbnail" style="margin: 0;border:0;height: 100px;" data-bind="attr:{src:'images/SegmentMarket/'+img()}" />
+                <img class="am-thumbnail" style="margin: 0;border:0;height: 80%;margin: 0 auto;" data-bind="attr:{src:'images/SegmentMarket/'+img()}" />
             </li>
         </ul>
         <h1>特性与效益</h1>
@@ -311,38 +376,12 @@
     </div>
 </div>
 
-<script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
 <script src="lib/knockoutjs/linq.min.js"></script>
-<script type="text/javascript" src="js/proList.js"></script>
-<script type="text/javascript" src="js/pro/productlist.js?v=124"></script>
+<script src="lib/jquery/jquery.url.js"></script>
+<script type="text/javascript" src="js/proList.js?v=12312"></script>
+<script type="text/javascript" src="js/pro/productlist.js?v=1254121212"></script>
 
-
-<script>
-    $(function() {
-        //初始化弹出框
-        $("#dialog").dialog({
-            width: $(window).width() * 0.6,
-            height: $(window).height() * 0.9,
-            draggable: false,
-            resizable: false,
-            autoOpen: false,
-            modal: true,
-            Cancel: function() {
-                $(this).dialog("close");
-            }
-        });
-        //初始化类别选
-        $(".treebox .level1>a").click(function() {
-            $(this).addClass('current') //给当前元素添加"current"样式
-                .find('i').addClass('down') //小箭头向下样式
-                .parent().next().slideDown('slow', 'easeOutQuad') //下一个元素显示
-                .parent().siblings().children('a').removeClass('current') //父元素的兄弟元素的子元素去除"current"样式
-                .find('i').removeClass('down').parent().next().slideUp('slow', 'easeOutQuad'); //隐藏
-            return false; //阻止默认时间
-        });
-    })
-</script>
 
 </html>

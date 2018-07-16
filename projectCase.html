@@ -118,14 +118,14 @@
                 </div> -->
             </div>
         </div>
-        <div class="header-nav">
+        <div class="header-nav" data-am-sticky>
             <button class="am-show-sm-only am-collapsed font f-btn" data-am-collapse="{target: '.header-nav'}">Menu <i
                 class="am-icon-bars"></i></button>
             <nav>
                 <ul class="header-nav-ul am-collapse am-in">
-                    <li class="on"><a href="index.html" name="index">网站首页</a></li>
+                    <li><a href="index.html" name="index">网站首页</a></li>
                     <li><a href="productlist.html?v=12"> 产品中心 </a></li>
-                    <li><a href="projectCase.html?v=12"> 工程案例 </a></li>
+                    <li class="activeSel"><a href="projectCase.html?v=12"> 工程案例 </a></li>
                     <li><a href="article_list.html" name="new">新闻资讯</a></li>
                     <li><a href="contact.html" name="message">联系我们</a>
                         <!-- <div class="secondary-menu">
@@ -169,10 +169,6 @@
                 <div class="typeLevel"><i class="am-icon-bars" style="margin-right: 10px;"></i>工程案例 <em class="typefont"> </em> </div>
                 <ul class="am-list am-list-static am-list-border" data-bind="foreach: TypeList">
                     <li><a href="javascript:void(0)" data-bind="text: name,click:$root.typeClick">石油化工</a><i class="am-icon-angle-right am-icon-md  alowright" aria-hidden="true"></i></li>
-                    <!-- <li><a href="#">风电能源</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
-                    <li><a href="#">钢铁行业</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
-                    <li><a href="#">建筑水泥</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i></li>
-                    <li><a href="#">变电站电力所</a><i class="fa fa-chevron-right alowright" aria-hidden="true"></i> </li> -->
                 </ul>
             </div>
             <div class="am-u-sm-9" style="padding: 5px;">
@@ -289,7 +285,7 @@
 </body>
 <script src="lib/knockoutjs/knockout-3.4.2.js"></script>
 <script src="lib/knockoutjs/linq.min.js"></script>
-<script type="text/javascript" src="js/pro/projectCase.js"></script>
+<script type="text/javascript" src="js/pro/projectCase.js?v=123"></script>
 <script>
     function loadFun() {
 

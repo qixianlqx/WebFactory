@@ -138,3 +138,7 @@
 .am-u-sm-12 {
     text-align: center;
 }
+
+.activeSel {
+    background: #5cc18c!important;
+}
